@@ -11,10 +11,66 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160627180545) do
+ActiveRecord::Schema.define(version: 20160628010749) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "arts", force: :cascade do |t|
+    t.boolean  "dancing"
+    t.boolean  "painting"
+    t.boolean  "photography"
+    t.boolean  "singing"
+    t.boolean  "theatre"
+    t.boolean  "writing"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+  end
+
+  create_table "foods", force: :cascade do |t|
+    t.boolean  "thai"
+    t.boolean  "italian"
+    t.boolean  "mexican"
+    t.boolean  "japanese"
+    t.boolean  "chinese"
+    t.boolean  "greek"
+    t.boolean  "spanish"
+    t.boolean  "indian"
+    t.boolean  "korean"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "musics", force: :cascade do |t|
+    t.boolean  "pop"
+    t.boolean  "rock"
+    t.boolean  "country"
+    t.boolean  "classical"
+    t.boolean  "jazz"
+    t.boolean  "blues"
+    t.boolean  "folk"
+    t.boolean  "randb"
+    t.boolean  "alternative"
+    t.boolean  "dance"
+    t.boolean  "latin"
+    t.boolean  "HipHop_Rap"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+  end
+
+  create_table "sports", force: :cascade do |t|
+    t.boolean  "soccer"
+    t.boolean  "football"
+    t.boolean  "basketball"
+    t.boolean  "tennis"
+    t.boolean  "rugby"
+    t.boolean  "F1"
+    t.boolean  "boxing"
+    t.boolean  "golf"
+    t.boolean  "baseball"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "users", force: :cascade do |t|
     t.string   "first_name"
@@ -28,6 +84,19 @@ ActiveRecord::Schema.define(version: 20160627180545) do
     t.integer  "age"
     t.datetime "created_at",      null: false
     t.datetime "updated_at",      null: false
+    t.integer  "art_id"
+    t.integer  "music_id"
+    t.integer  "food_id"
+    t.integer  "sport_id"
   end
 
+  add_index "users", ["art_id"], name: "index_users_on_art_id", using: :btree
+  add_index "users", ["food_id"], name: "index_users_on_food_id", using: :btree
+  add_index "users", ["music_id"], name: "index_users_on_music_id", using: :btree
+  add_index "users", ["sport_id"], name: "index_users_on_sport_id", using: :btree
+
+  add_foreign_key "users", "arts"
+  add_foreign_key "users", "foods"
+  add_foreign_key "users", "musics"
+  add_foreign_key "users", "sports"
 end
