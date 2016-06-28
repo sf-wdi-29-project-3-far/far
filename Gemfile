@@ -54,6 +54,10 @@ gem 'paperclip'
 
 gem 'twitter-bootstrap-rails'
 
+
 gem 'has_friendship'
 
 gem 'foundation-rails'
+
+
+

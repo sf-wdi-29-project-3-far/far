@@ -2,5 +2,35 @@
 
 <%= render 'form', new_user: false %>
 
+
 <%= button_to 'User Profile', @user, class: 'button' %>
-<%= button_to 'Back', users_path, class: 'button' %>
+<%= button_to 'Back', users_path, class: 'button', method: :get %>
+
+
+<p><a data-open="modal">Art</a></p>
+<div class="large reveal" id="modal" data-reveal>
+<h1> Art </h1>
+<div class="row">
+  
+  <fieldset class="large-6 columns">
+    <legend>Select your choices</legend>
+    <%= form_for @art, method: "post", action: "users/#{@user.id}/art" do |f| %>
+		<%= f.check_box(:dancing) %> 
+		<%= f.label(:dancing, "Dancing") %>
+		<%= f.check_box(:theatre) %> 
+		<%= f.label(:theatre, "Theatre") %>
+		<%= f.check_box(:singing) %> 
+		<%= f.label(:singing, "Singing") %>
+		<%= f.check_box(:painting) %> 
+		<%= f.label(:painting, "Painting") %>
+
+    	<%= f.submit %>
+    <% end %>
+    
+  </fieldset>
+</div>
+</div>
+<button type="button" class="button alert">Delete</button>
+
+
+

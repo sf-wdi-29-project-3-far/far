@@ -26,6 +26,7 @@ class UsersController < ApplicationController
 
   # GET /users/1/edit
   def edit
+    @art = Art.new()
   end
 
   # POST /users
@@ -34,7 +35,7 @@ class UsersController < ApplicationController
     @user = User.new(user_params)
     if @user.save
       login(@user)
-      flash[:success] = "Welcome to Open-Mic!"
+      flash[:success] = "Welcome to FAR!"
       redirect_to @user
     else
       redirect_to new_user_path, flash: {error: @user.errors.full_messages.to_sentence}
@@ -78,6 +79,19 @@ class UsersController < ApplicationController
     end
   end
 
+    # POST for art category
+  def arts
+    @user = current_user
+    @art = Art.create(art_params)
+    @user.art_id = @art.id
+    @user.save
+    redirect_to edit_user_path
+  end
+
+  def art_params
+    params.require(:art).permit(:dancing, :singing, :theatre, :painting) 
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_user
@@ -88,4 +102,6 @@ class UsersController < ApplicationController
     def user_params
       params.require(:user).permit(:first_name, :last_name, :email, :email_confirmation, :password, :password_confirmation, :current_city, :origin_city, :native_language, :languages, :age)
     end
+
+
 end

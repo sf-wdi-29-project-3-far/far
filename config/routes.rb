@@ -8,6 +8,7 @@ Rails.application.routes.draw do
   post '/sessions', to: 'sessions#create'
   delete '/sessions', to: 'sessions#destroy', as: 'delete'
 
+
   #friendship routes
   get  '/users/:id', to: 'friendships#show', as: 'show_friendship'
   post '/users/:id/request', to: 'friendships#add', as: 'request'
@@ -16,5 +17,9 @@ Rails.application.routes.draw do
   post '/users/:id/remove', to: 'friendships#remove', as: 'remove'
   post '/users/:id/block', to: 'friendships#block', as: 'block'
   post '/users/:id/unblock', to: 'friendships#unblock', as: 'unblock'
+
+  #category routes
+  post '/users/:id/art', to: 'users#arts', as: 'arts'
+
 
 end

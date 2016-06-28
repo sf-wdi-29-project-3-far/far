@@ -1,4 +1,8 @@
 class User < ActiveRecord::Base
+  belongs_to :art
+  belongs_to :music
+  belongs_to :sport
+  belongs_to :food
 
   validates :email, presence: true, confirmation: true, uniqueness: true
   validates :password, presence: true
