@@ -3,13 +3,14 @@
     <!-- Brand and toggle get grouped for better mobile display -->
     <div class="navbar-header">
 
-      <a class="navbar-brand navbar-color" href="/">Open Mic World Tour</a>
+      <a class="navbar-brand navbar-color" href="/">Friends Around the World</a>
 
     </div>
 
     <!-- Collect the nav links, forms, and other content for toggling -->
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav navbar-right">
+        <li><%= link_to "Members", users_path %></li>
         <% if current_user %>
           <li><%= link_to current_user.first_name, user_path(current_user), class: "navbar-color currUser" %></li>
           <li><%= link_to "Sign Out", sessions_path, method: :delete, class: "navbar-color" %></li>
