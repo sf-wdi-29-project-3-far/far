@@ -1,1 +1,16 @@
 <h1>You're Home!</h1>
+
+<script src="https://static.opentok.com/v2/js/opentok.js" charset="utf-8"></script>
+<script charset="utf-8">
+  var apiKey = '45613842';
+  var sessionId = '2_MX40NTYxMzg0Mn5-MTQ2NzA5NjI2MzEzMX5ubUlBWERzUWh0ZFBhRXYzMmt4L3BaaGp-fg';
+  var token = 'T1==cGFydG5lcl9pZD00NTYxMzg0MiZzaWc9MDg1MjQxZThlNGZmNDI2M2QyYmQ3OTg5MjQzNGE5OWE5ODUzYjIyMDpzZXNzaW9uX2lkPTJfTVg0ME5UWXhNemcwTW41LU1UUTJOekE1TmpJMk16RXpNWDV1YlVsQldFUnpVV2gwWkZCaFJYWXpNbXQ0TDNCYWFHcC1mZyZjcmVhdGVfdGltZT0xNDY3MDk2MzM4Jm5vbmNlPTAuNzgyNzgyMjkxNTI3ODM3NSZyb2xlPXB1Ymxpc2hlciZleHBpcmVfdGltZT0xNDY3MDk5OTM3';
+  var session = OT.initSession(apiKey, sessionId)
+    .on('streamCreated', function(event) {
+      session.subscribe(event.stream);
+    })
+    .connect(token, function(error) {
+      var publisher = OT.initPublisher();
+      session.publish(publisher);
+    });
+</script>
