@@ -9,12 +9,14 @@ Rails.application.routes.draw do
   delete '/sessions', to: 'sessions#destroy', as: 'delete'
 
   #friendship routes
-  get '/users/:user_id/friendships', to: 'friendships#show', as: 'show_friendship'
-  post '/users/:id', to: 'friendships#request', as: 'request'
-  post '/users/:user_id/friendships', to: 'friendships#accept', as: 'accept'
-  post '/users/:user_id/friendships', to: 'friendships#decline', as: 'decline'
-  post '/users/:user_id/friendships', to: 'friendships#remove', as: 'remove'
-  post '/users/:user_id/friendships', to: 'friendships#block', as: 'block'
-  post '/users/:user_id/friendships', to: 'friendships#unblock', as: 'unblock'
+
+
+  get  '/users/:id', to: 'friendships#show', as: 'show_friendship'
+  post '/users/:id/request', to: 'friendships#add', as: 'request'
+  post '/users/:id/accept', to: 'friendships#accept', as: 'accept'
+  post '/users/:id/decline', to: 'friendships#decline', as: 'decline'
+  post '/users/:id/remove', to: 'friendships#remove', as: 'remove'
+  post '/users/:id/block', to: 'friendships#block', as: 'block'
+  post '/users/:id/unblock', to: 'friendships#unblock', as: 'unblock'
 
 end
