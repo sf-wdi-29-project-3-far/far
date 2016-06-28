@@ -1,65 +1,83 @@
 <p id="notice"><%= notice %></p>
-<%= button_to 'Back', users_path, class: 'btn' %>
+<%= button_to 'Back', users_path, class: 'button', method: :get %>
 
 <% unless current_user == @user || current_user.friends_with?(@user) || current_user.friend_pending?(@user) || current_user.friend_request?(@user) %>
-  <%= button_to 'Add Friend', request_path(@user), method: :post, class: 'btn' %>
+  <%= button_to 'Add Friend', request_path(@user), method: :post, class: 'button' %>
 <% end %>
 
 <% if current_user == @user %>
-  <%= button_to 'Edit Profile', edit_user_path(@user), class: 'btn' %>
+  <%= button_to 'Edit Profile', edit_user_path(@user), class: 'button' %>
 <% end %>
 
 <% if current_user.friend_request?(@user) %>
-  <%= button_to 'Accept', accept_path(@user), method: :post, class: 'btn' %>
-  <%= button_to 'Decline', decline_path(@user), method: :post, class: 'btn' %>
+  <%= button_to 'Accept', accept_path(@user), method: :post, class: 'button' %>
+  <%= button_to 'Decline', decline_path(@user), method: :post, class: 'button' %>
 <% end %>
 
 <% if current_user.friends_with?(@user) %>
-  <%= button_to 'Remove', remove_path(@user), method: :post, class: 'btn' %>
+  <%= button_to 'Remove', remove_path(@user), method: :post, class: 'button' %>
 <% end %>
 
 
+<div class="row">
+    <div class="large-8 columns">
+      <div class="callout">
+        <h3><%= @user.first_name %>'s Profile </h3>
+        <p>I like to rollerblade.</p>
+        <p>Read about the other things I like to do:</p>
+        <div class="row">
+          <div class="large-4 medium-4 columns">
+            <p>
+              <strong>First name:</strong>
+              <%= @user.first_name %><br>
+              <strong>Last name:</strong>
+              <%= @user.last_name %><br>
+              <br>
+              <strong>Age:</strong>
+              <%= @user.age %><br>
+              <strong>Email:</strong>
+              <%= @user.email %>
+            </p>
+          </div>
+          <div class="large-4 medium-4 columns">
+            <p>
+              <strong>Current city:</strong>
+              <%= @user.current_city %><br>
+              <strong>Origin city:</strong>
+              <%= @user.origin_city %><br>
+              <br>
+              <strong>Native language:</strong>
+              <%= @user.native_language %><br>
+              <strong>Languages:</strong>
+              <%= @user.languages %>
+            </p>
+          </div>
+          <div class="large-4 medium-4 columns">
+            <p>
+              <img src="https://i.ytimg.com/vi/tntOCGkgt98/maxresdefault.jpg" title="cat-burrito" alt="cat-burrito">
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 
-<p>
-  <strong>First name:</strong>
-  <%= @user.first_name %>
-</p>
 
-<p>
-  <strong>Last name:</strong>
-  <%= @user.last_name %>
-</p>
 
-<p>
-  <strong>Email:</strong>
-  <%= @user.email %>
-</p>
 
-<p>
-  <strong>Current city:</strong>
-  <%= @user.current_city %>
-</p>
 
-<p>
-  <strong>Origin city:</strong>
-  <%= @user.origin_city %>
-</p>
 
-<p>
-  <strong>Native language:</strong>
-  <%= @user.native_language %>
-</p>
 
-<p>
-  <strong>Languages:</strong>
-  <%= @user.languages %>
-</p>
 
-<p>
-  <strong>Age:</strong>
-  <%= @user.age %>
-</p>
-<hr>
+
+
+<% if current_user == @user %>
+  <%= button_to 'Edit Profile', edit_user_path(@user), class: 'button' %>
+<% end %>
+<% if current_user != @user %>
+  <%= button_to 'Send Friend Request', request_path(@user), :method => :post, class: 'button' %>
+<% end %>
+
 <h3>Friends</h3>
 <% @user.friends.each do |f| %>
 <ul>
@@ -82,5 +100,4 @@
     </ul>
   <% end %>
 <% end %>
-
 

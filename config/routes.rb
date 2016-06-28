@@ -9,8 +9,6 @@ Rails.application.routes.draw do
   delete '/sessions', to: 'sessions#destroy', as: 'delete'
 
   #friendship routes
-
-
   get  '/users/:id', to: 'friendships#show', as: 'show_friendship'
   post '/users/:id/request', to: 'friendships#add', as: 'request'
   post '/users/:id/accept', to: 'friendships#accept', as: 'accept'
