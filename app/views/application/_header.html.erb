@@ -11,11 +11,11 @@
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav navbar-right">
         <% if current_user %>
-          <li><%= link_to current_user.first_name, user_path(current_user), class: "navbar-color currUser" %></li>
-          <li><%= link_to "Sign Out", sessions_path, method: :delete, class: "navbar-color" %></li>
+          <li><%= button_to current_user.first_name, user_path(current_user), class: "navbar-color currUser button" %></li>
+          <li><%= button_to "Sign Out", sessions_path, method: :delete, class: "navbar-color button" %></li>
         <% else %>
-          <li><%= link_to "Sign in", sign_in_path, method: :get, class: "navbar-color" %></li>
-          <li><%= link_to "Sign up", new_user_path, method: :get, class: "navbar-color" %></li>
+          <li><%= button_to "Sign in", sign_in_path, method: :get, class: "navbar-color button" %></li>
+          <li><%= button_to "Sign up", new_user_path, method: :get, class: "navbar-color button" %></li>
         <% end %>
       </ul>
 
