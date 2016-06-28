@@ -54,3 +54,5 @@ gem 'paperclip'
 
 gem 'twitter-bootstrap-rails'
 
+gem 'foundation-rails'
+

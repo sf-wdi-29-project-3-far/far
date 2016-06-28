@@ -12,5 +12,16 @@
 //
 //= require jquery
 //= require jquery_ujs
+//= require foundation
 //= require turbolinks
 //= require_tree .
+
+
+var $modal = $('#modal');
+
+$.ajax('/url')
+ .done(function(resp){
+   $modal.html(resp.html).foundation('open');
+});
+
+$(function(){ $(document).foundation(); });
