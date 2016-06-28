@@ -1,9 +1,8 @@
 <p id="notice"><%= notice %></p>
 <%= button_to 'Back', users_path, class: 'btn' %>
 
-<% if current_user != @user %>
-  <%= button_to 'Add Friend', request_path(@user), :method => :post, class: 'btn' %>
-  <%= button_to 'Block', block_path(@user), :method => :post, class: 'btn' %>
+<% unless current_user == @user || current_user.friends_with?(@user) || current_user.friend_pending?(@user) || current_user.friend_request?(@user) %>
+  <%= button_to 'Add Friend', request_path(@user), method: :post, class: 'btn' %>
 <% end %>
 
 <% if current_user == @user %>
@@ -12,8 +11,14 @@
 
 <% if current_user.friend_request?(@user) %>
   <%= button_to 'Accept', accept_path(@user), method: :post, class: 'btn' %>
-  <%= button_to 'Decline', decline_path(@user), :method => :post, class: 'btn' %>
+  <%= button_to 'Decline', decline_path(@user), method: :post, class: 'btn' %>
 <% end %>
+
+<% if current_user.friends_with?(@user) %>
+  <%= button_to 'Remove', remove_path(@user), method: :post, class: 'btn' %>
+<% end %>
+
+
 
 <p>
   <strong>First name:</strong>
@@ -58,23 +63,22 @@
 <h3>Friends</h3>
 <% @user.friends.each do |f| %>
 <ul>
-  <li><%= f.first_name %> <%= f.last_name %></li>
+  <li><%= link_to f.first_name, "#{f.id}" %></li>
 </ul>
 <% end %>
 <% if current_user == @user %>
 <hr>
   <h3>Friend Request</h3>
   <% current_user.requested_friends.each do |q| %>
-      <% q.id %>
     <ul>
-      <li><%= q.first_name %> <%= q.last_name %></li>
+      <li><%= link_to q.first_name, "#{q.id}" %></li>
     </ul>
   <% end %>
   <hr>
   <h3>Pending Friends</h3>
   <% current_user.pending_friends.each do |p| %>
     <ul>
-      <li><%= p.first_name %> <%= p.last_name %></li>
+      <li><%= link_to p.first_name, "#{p.id}" %></li>
     </ul>
   <% end %>
 <% end %>

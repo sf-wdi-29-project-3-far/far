@@ -31,16 +31,14 @@ class FriendshipsController < ApplicationController
     redirect_to current_user
   end
 
-  def block
-    @user = current_user
-    @friend = User.find(params[:id])
-    @user.block_friend(@friend)
-  end
+  # def block
+  #   current_user.block_friend(@friend)
+  #   redirect_to current_user
+  # end
 
-  def unblock
-    @user = current_user
-    @friend = User.find(params[:id])
-    @user.unblock_friend(@friend)
-  end
-
+  # def unblock
+  #   current_user.unblock_friend(@friend)
+  #   redirect_to current_user
+  # end
+  
 end
