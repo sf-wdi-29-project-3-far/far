@@ -16,11 +16,6 @@
 </p>
 
 <p>
-  <strong>Password digest:</strong>
-  <%= @user.password_digest %>
-</p>
-
-<p>
   <strong>Current city:</strong>
   <%= @user.current_city %>
 </p>
@@ -45,5 +40,11 @@
   <%= @user.age %>
 </p>
 
-<%= link_to 'Edit', edit_user_path(@user) %> |
-<%= link_to 'Back', users_path %>
+<% if current_user == @user %>
+  <%= button_to 'Edit Profile', edit_user_path(@user), class: 'btn' %>
+<% end %>
+<% if current_user != @user %>
+  <%= button_to 'Add Friend', request_path(@user), :method => :post, class: 'btn' %>
+<% end %>
+
+<%= button_to 'Back', users_path, class: 'btn' %>

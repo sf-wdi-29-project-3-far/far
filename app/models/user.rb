@@ -9,4 +9,6 @@ class User < ActiveRecord::Base
     @user.try(:authenticate, params[:password])
   end
 
+  has_friendship
+
 end
