@@ -1,11 +1,6 @@
 class FriendshipsController < ApplicationController
   before_action :set_friend
 
-  def set_friend
-    user_id = params[:id]
-    @friend = User.find(user_id)
-  end
-
   def show
     @user.friends
   end
@@ -31,14 +26,11 @@ class FriendshipsController < ApplicationController
     redirect_to current_user
   end
 
-  # def block
-  #   current_user.block_friend(@friend)
-  #   redirect_to current_user
-  # end
+  private
 
-  # def unblock
-  #   current_user.unblock_friend(@friend)
-  #   redirect_to current_user
-  # end
+  def set_friend
+    user_id = params[:id]
+    @friend = User.find(user_id)
+  end
   
 end

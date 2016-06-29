@@ -21,5 +21,9 @@ Rails.application.routes.draw do
   #category routes
   post '/users/:id/art', to: 'users#arts', as: 'arts'
 
+  #conversation/ message routes
+  resources :conversations do
+    resources :messages
+  end
 
 end
