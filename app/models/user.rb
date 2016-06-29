@@ -39,4 +39,8 @@ class User < ActiveRecord::Base
   #   blocked_friends.pluck(:id)
   # end
 
+  def search_conversation (form_params)
+    
+  end
+
 end
