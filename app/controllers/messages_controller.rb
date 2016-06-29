@@ -5,6 +5,11 @@ class MessagesController < ApplicationController
 
   def index
     @messages = @conversation.messages
+    @sender_id = @conversation.sender_id
+    @sender = User.find(@sender_id)
+    @recipient_id = @conversation.recipient_id
+    @recipient = User.find(@recipient_id)
+
     if @messages.length > 10
       @over_ten = true
       @messages = @messages[-10..-1]
