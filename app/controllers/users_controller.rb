@@ -88,24 +88,21 @@ class UsersController < ApplicationController
     redirect_to edit_user_path
   end
 
-  def new_conversation
-    @conversation = Conversation.new()
-    render :conversation_form
+  def new_match
+    @match = Match.new()
+    render :match_form
   end
 
-  def create_conversation
+  def find_match
     @user = current_user
-    @conversation = Conversation.create(conversation_params)
-    @matches = @user.search_conversation(@conversation)
-    render :conversation
+    @form_match = Match.create(match_params)
+    @matches = @user.search_for_matches(@form_match)
+    render :matches
   end
 
-  def art_params
-    params.require(:art).permit(:dancing, :singing, :theatre, :painting) 
-  end
 
-  def conversation_params
-    params.require(:conversation).permit(:language, :origin_country, :male, :female, :other_gender, :age, :interests=>[]) 
+  def match_params
+    params.require(:match).permit(:language, :origin_country, :current_country, :male, :female, :other_gender, :age, :interests=>[]) 
   end
 
   private

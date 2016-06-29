@@ -21,7 +21,7 @@ Rails.application.routes.draw do
   #category routes
   post '/users/:id/art', to: 'users#arts', as: 'arts'
 
-  #conversation form routes
-  get '/users/:id/conversation/new', to: "users#new_conversation", as: 'new_conversation'
-  post '/users/:id/conversation', to: "users#create_conversation", as: 'conversations'
+  #match form routes
+  get '/users/:id/match/new', to: "users#new_match", as: 'new_match'
+  post '/users/:id/match', to: "users#find_match", as: 'matches'
 end

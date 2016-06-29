@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160629205127) do
+ActiveRecord::Schema.define(version: 20160629231807) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -25,18 +25,6 @@ ActiveRecord::Schema.define(version: 20160629205127) do
     t.boolean  "writing"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
-  end
-
-  create_table "conversations", force: :cascade do |t|
-    t.string   "language"
-    t.string   "origin_country"
-    t.integer  "age"
-    t.boolean  "male"
-    t.boolean  "female"
-    t.boolean  "other_gender"
-    t.datetime "created_at",                  null: false
-    t.datetime "updated_at",                  null: false
-    t.text     "interests",      default: [],              array: true
   end
 
   create_table "foods", force: :cascade do |t|
@@ -61,6 +49,19 @@ ActiveRecord::Schema.define(version: 20160629205127) do
     t.datetime "updated_at"
     t.integer  "blocker_id"
     t.integer  "status"
+  end
+
+  create_table "matches", force: :cascade do |t|
+    t.string   "origin_country"
+    t.string   "current_country"
+    t.integer  "age"
+    t.boolean  "male"
+    t.boolean  "female"
+    t.boolean  "other_gender"
+    t.string   "language"
+    t.datetime "created_at",                   null: false
+    t.datetime "updated_at",                   null: false
+    t.text     "interests",       default: [],              array: true
   end
 
   create_table "musics", force: :cascade do |t|
@@ -101,7 +102,6 @@ ActiveRecord::Schema.define(version: 20160629205127) do
     t.string   "password_digest"
     t.string   "current_city"
     t.string   "origin_city"
-    t.string   "native_language"
     t.integer  "age"
     t.datetime "created_at",                   null: false
     t.datetime "updated_at",                   null: false
@@ -124,6 +124,7 @@ ActiveRecord::Schema.define(version: 20160629205127) do
     t.text     "languages",       default: [],              array: true
     t.text     "interests",       default: [],              array: true
     t.integer  "count",           default: 0
+    t.string   "current_country"
   end
 
   add_index "users", ["art_id"], name: "index_users_on_art_id", using: :btree
