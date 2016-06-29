@@ -96,7 +96,8 @@ class UsersController < ApplicationController
   def create_conversation
     @user = current_user
     @conversation = Conversation.create(conversation_params)
-    redirect_to @user
+    @matches = @user.search_conversation(@conversation)
+    render :conversation
   end
 
   def art_params

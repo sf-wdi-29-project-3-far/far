@@ -1,0 +1,38 @@
+<h1>Matches</h1>
+
+<h3>Hi <%= @user.first_name %></h3>
+
+  <h2>Your search parameters:</h2> 
+  <%= @conversation.language %><br>           
+  <%= @conversation.origin_country %><br>
+  <%= @conversation.age %><br>
+  <%= @conversation.interests %>
+
+
+<h2>Your matches:</h2><br>
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Email</th>
+      <th>Languages</th>
+      <th>Origin Country</th>
+      <th>Age</th>
+      <th>Interests</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @matches.each do |user| %>
+      <tr>
+        <td><%= link_to "#{user.first_name} #{user.last_name}", "users/#{user.id}" %></td>
+        <td><%= user.email %></td>
+        <td><%= user.languages %></td>
+        <td><%= user.origin_country %></td>
+        <td><%= user.age %></td>
+        <td><%= user.interests %></td>
+        <td><%= user.count %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
