@@ -104,7 +104,7 @@ class UsersController < ApplicationController
   end
 
   def conversation_params
-    params.require(:conversation).permit(:language, :origin_country, :male, :female, :other_gender, :age, :interests) 
+    params.require(:conversation).permit(:language, :origin_country, :male, :female, :other_gender, :age, :interests=>[]) 
   end
 
   private
