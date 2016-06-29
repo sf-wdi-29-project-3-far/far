@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160629011334) do
+ActiveRecord::Schema.define(version: 20160629011133) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -91,8 +91,8 @@ ActiveRecord::Schema.define(version: 20160629011334) do
     t.string   "origin_city"
     t.string   "native_language"
     t.integer  "age"
-    t.datetime "created_at",                   null: false
-    t.datetime "updated_at",                   null: false
+    t.datetime "created_at",      null: false
+    t.datetime "updated_at",      null: false
     t.integer  "art_id"
     t.integer  "music_id"
     t.integer  "food_id"
@@ -109,7 +109,6 @@ ActiveRecord::Schema.define(version: 20160629011334) do
     t.boolean  "male"
     t.boolean  "female"
     t.boolean  "other_gender"
-    t.text     "languages",       default: [],              array: true
   end
 
   add_index "users", ["art_id"], name: "index_users_on_art_id", using: :btree
