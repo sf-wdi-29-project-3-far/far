@@ -15,6 +15,9 @@
  *= require foundation_and_overrides
 
  */
+ a, a:visited {
+  color: inherit;
+ }
 .top-bar {
   background: #1C1C1C;
 }
