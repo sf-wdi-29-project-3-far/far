@@ -22,11 +22,11 @@
   font-size: 26px;
     color: #05ABFE;
   background: #1C1C1C;
-  vertical-align: middle;
+  padding: 0px;
 }
 .top-bar-right {
   background: #1C1C1C;
-  margin: 5px 20px 5px 0px;
+  margin: 5px;
 }
 .menu {
     background: #1C1C1C;
