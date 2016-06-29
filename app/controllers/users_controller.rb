@@ -88,8 +88,23 @@ class UsersController < ApplicationController
     redirect_to edit_user_path
   end
 
+  def new_conversation
+    @conversation = Conversation.new()
+    render :conversation_form
+  end
+
+  def create_conversation
+    @user = current_user
+    @conversation = Conversation.create(conversation_params)
+    redirect_to @user
+  end
+
   def art_params
     params.require(:art).permit(:dancing, :singing, :theatre, :painting) 
+  end
+
+  def conversation_params
+    params.require(:conversation).permit(:language, :origin_country, :male, :female, :other_gender, :age, :interests) 
   end
 
   private

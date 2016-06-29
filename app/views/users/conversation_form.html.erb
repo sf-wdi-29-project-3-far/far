@@ -1,0 +1,59 @@
+<h1>Start a new conversation</h1>
+
+
+<%= form_for(@conversation) do |f| %>
+  
+  <div class="field">
+  	<%= select_tag(:language, options_for_select(["English", "Spanish", "Italiano"]), {include_blank: '--Select a Language--'}) %>
+  </div>
+  <div class="field">
+	<%= select_tag(:origin_country, options_for_select(["Mexico", "USA", "Italy"]), {include_blank: '--Select a Country--'}) %>
+  </div>
+
+  <div class="field">
+    <%= f.label :age %><br>
+    <%= f.number_field :age %>
+  </div>
+
+  <div class="field">
+    <%= f.radio_button :male, name:"gender" %>
+    <%= f.label :male %><br>
+    <%= f.radio_button :female, name:"gender" %>
+    <%= f.label :female %><br>
+    <%= f.radio_button :other_gender, name:"gender" %>
+    <%= f.label :other_gender %><br>
+  </div>
+
+  <div class="field">
+  	<h1>Arts</h1>
+	<input type="checkbox" name="conversation[interests][]" value="dancing">Dancing</input>
+	<input type="checkbox" value="singing">Singing</input>
+	<input type="checkbox" value="painting">Painting</input>
+	<input type="checkbox" value="theatre">Theatre</input>
+  </div>
+
+  <h1>Sports</h1>
+	<input type="checkbox" name="conversation[interests][]" value="football">Football</input>
+	<input type="checkbox" value="soccer">Soccer</input>
+	<input type="checkbox" value="basketball">Basketball</input>
+	<input type="checkbox" value="tennis">Tennis</input>
+  </div>
+
+  <h1>Food</h1>
+	<input type="checkbox" name="conversation[interests][]" value="spanish">Spanish</input>
+	<input type="checkbox" value="korean">Korean</input>
+	<input type="checkbox" value="mexican">Mexican</input>
+	<input type="checkbox" value="italian">Italian</input>
+  </div>
+
+	<h1>Music</h1>
+	<input type="checkbox" name="conversation[interests][]" value="pop">Pop</input>
+	<input type="checkbox" value="rock">Rock</input>
+	<input type="checkbox" value="jazz">Jazz</input>
+	<input type="checkbox" value="blues">Blues</input>
+  </div>
+
+  <div class="actions">
+    <button type="submit" class="button">Find friends!</button>
+  </div>
+<% end %>

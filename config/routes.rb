@@ -21,5 +21,7 @@ Rails.application.routes.draw do
   #category routes
   post '/users/:id/art', to: 'users#arts', as: 'arts'
 
-
+  #conversation form routes
+  get '/users/:id/conversation/new', to: "users#new_conversation", as: 'new_conversation'
+  post '/users/:id/conversation', to: "users#create_conversation", as: 'conversations'
 end
