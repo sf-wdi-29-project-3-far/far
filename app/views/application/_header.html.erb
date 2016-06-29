@@ -1,25 +1,23 @@
-<nav class="navbar navbar-color" id="nav">
-  <div class="container-fluid navbar-color" id="header">
-    <!-- Brand and toggle get grouped for better mobile display -->
-    <div class="navbar-header">
+<!-- Nav Bar -->
+<div class="top-bar">
+  <div class="top-bar-left">
+    <ul class="dropdown menu" data-dropdown-menu>
+      <li class="menu-text">Friends Around the World</li>
+    </ul>
+  </div>
 
-      <a class="navbar-brand navbar-color" href="/">Friends Around the World</a>
-
-    </div>
-
-    <!-- Collect the nav links, forms, and other content for toggling -->
-    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-      <ul class="nav navbar-nav navbar-right">
-        <li><%= button_to "Members", users_path, method: :get, class: "navbar-color button" %></li>
-        <% if current_user %>
-          <li><%= button_to current_user.first_name, user_path(current_user), class: "navbar-color currUser button" %></li>
-          <li><%= button_to "Sign Out", sessions_path, method: :delete, class: "navbar-color button" %></li>
-        <% else %>
-          <li><%= button_to "Sign in", sign_in_path, method: :get, class: "navbar-color button" %></li>
-          <li><%= button_to "Sign up", new_user_path, method: :get, class: "navbar-color button" %></li>
-        <% end %>
-      </ul>
-
-    </div><!-- /.navbar-collapse -->
-  </div><!-- /.container-fluid -->
-</nav>
+  <div class="top-bar-right">
+    <ul class="menu">
+      <li class="menu"><%= button_to "Members", users_path, method: :get, class: "button" %></li>
+      <% if current_user %>
+        <li class="menu"><%= button_to 'My Profile', user_path(current_user), class: "currUser button" %></li>
+        <li class="menu"><%= button_to "Sign Out", sessions_path, method: :delete, class: "button" %></li>
+      <% else %>
+        <li class="menu"><%= button_to "Sign in", sign_in_path, method: :get, class: "button" %></li>
+        <li class="menu"><%= button_to "Sign up", new_user_path, method: :get, class: "button" %></li>
+      <% end %>
+      <li class="menu"><input type="search" placeholder="Search"></li>
+      <li class="menu"><button type="button" class="button">Search</button></li>
+    </ul>
+  </div>
+</div>
