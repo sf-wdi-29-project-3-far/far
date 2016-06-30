@@ -5,7 +5,8 @@ class User < ActiveRecord::Base
   belongs_to :food
 
   validates :email, presence: true, confirmation: true, uniqueness: true
-  validates :password, presence: true
+  validates :password, presence: true, confirmation: true, on: :create
+  validates :password, length: {minimum: 5, maximum: 120}, on: :update, allow_blank: true
 
   has_secure_password
   def self.confirm(params)

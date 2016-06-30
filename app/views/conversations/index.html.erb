@@ -1,7 +1,8 @@
 <div class='container'>
   <div class="row">
     <div class='medium-2 columns'>
-      <h3>New</h3>
+      <h3>Friends</h3>
+      <h5>New Message</h5>
       <% current_user.friends.each do |user| %>
         <% if user.id != current_user.id %>
           <%= button_to user.first_name, conversations_path(sender_id: current_user.id, recipient_id: user.id), class: 'button', method: :post %>
