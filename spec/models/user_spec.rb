@@ -10,10 +10,6 @@ RSpec.describe User, type: :model do
   			expect(user).to be_a(User)
   		end
 
-  		it "should have a name" do
-      		expect(user.name).to_not be_nil
-    	end
-
   		it "should have an email" do
   			expect(user.email).to_not be_nil
   		end
@@ -28,7 +24,7 @@ RSpec.describe User, type: :model do
 
   describe "#self.confirm" do
   		it "allows a secure password"
-
+      
   		end
   end
 

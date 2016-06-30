@@ -4,10 +4,10 @@ class User < ActiveRecord::Base
   belongs_to :sport
   belongs_to :food
 
-  validates :first_name, presense: true
-  validates :last_name, presense: true
-  validates :email, presence: true, confirmation: true, uniqueness: true
-  validates :password, presence: true
+  validates_presence_of :first_name, presense: true
+  validates_presence_of :last_name, presense: true
+  validates_presence_of :email, presence: true, confirmation: true, uniqueness: true
+  validates_presence_of :password, presence: true
 
 
   has_secure_password
