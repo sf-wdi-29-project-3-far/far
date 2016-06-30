@@ -15,3 +15,22 @@
  *= require foundation_and_overrides
 
  */
+ a, a:visited {
+  color: inherit;
+ }
+.top-bar {
+  background: #1C1C1C;
+}
+.menu-text {
+  font-size: 26px;
+    color: #05ABFE;
+  background: #1C1C1C;
+  padding: 0px;
+}
+.top-bar-right {
+  background: #1C1C1C;
+  margin: 5px;
+}
+.menu {
+    background: #1C1C1C;
+}

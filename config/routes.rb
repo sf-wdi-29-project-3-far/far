@@ -21,5 +21,13 @@ Rails.application.routes.draw do
   #category routes
   post '/users/:id/art', to: 'users#arts', as: 'arts'
 
+  #conversation/ message routes
+  resources :conversations do
+    resources :messages
+  end
+
+  #match form routes
+  get '/users/:id/match/new', to: "users#new_match", as: 'new_match'
+  post '/users/:id/match', to: "users#find_match", as: 'matches'
 
 end
