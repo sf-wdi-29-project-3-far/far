@@ -80,6 +80,6 @@ test:
 #
 production:
   <<: *default
-  database: far_production
-  username: far
+  database: dfu7te2mm83ts7
+  username: yfcbrqpjyotgvt
   password: <%= ENV['FAR_DATABASE_PASSWORD'] %>
