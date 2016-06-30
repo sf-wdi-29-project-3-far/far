@@ -18,14 +18,15 @@
  a, a:visited {
   color: inherit;
  }
+ ul {
+  background: #1C1C1C;
+ }
 .top-bar {
   background: #1C1C1C;
 }
-.menu-text {
-  font-size: 26px;
-    color: #05ABFE;
+.top-bar-left {
   background: #1C1C1C;
-  padding: 0px;
+  margin: 5px;
 }
 .top-bar-right {
   background: #1C1C1C;
@@ -33,4 +34,9 @@
 }
 .menu {
     background: #1C1C1C;
+}
+.menu-text {
+  font-size: 26px;
+    color: #05ABFE;
+  background: #1C1C1C;
 }
