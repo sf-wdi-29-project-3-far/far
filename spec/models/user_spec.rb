@@ -29,14 +29,15 @@ RSpec.describe User, type: :model do
 
   describe "#search_for_matches" do
     it "creates a match when params match" do
-      @params_1 = {age: 45, interest: "dancing", language: "Italian"}
-      match_object_1 = Match.create(@params_1)
-      user_1 = User.new(@params_1)
-      matches = @user_1.search_for_matches(match_object_1)
-      expect @matches :to include (user_1)
+      @paramsmatch_1 = {age: 45, interests: ["dancing"], language: "Italian"}
+      match_object_1 = Match.create(@paramsmatch_1)
+      @paramsuser_1 = {age: 45, interests: ["dancing"], languages: ["Italian"]}
+      user_1 = User.new(@paramsuser_1)
+      matches = user_1.search_for_matches(match_object_1)
+      expect(matches).to include(user_1)
     end
 
-    it "doesn't create a match when params don't match"
+    it "doesn't create a match when params don't match" do
       # @user_2 = User.new({age: 23, interest: "singing", language: "Italian"})
       # @user_3 = User.new({age: 37, interest: "football", language: "Spanish"})
     end

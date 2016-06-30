@@ -63,7 +63,7 @@
 
 
 <% if current_user == @user %>
-  <%= button_to 'Edit Profile', edit_user_path(@user), class: 'button' %>
+  <%= link_to 'Edit Profile', edit_user_path(@user), class: 'button' %>
 <% end %>
 
 <% unless current_user == @user || current_user.friends_with?(@user) || current_user.friend_pending?(@user) || current_user.friend_request?(@user) %>
