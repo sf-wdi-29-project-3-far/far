@@ -1,7 +1,7 @@
 require 'rails_helper'
 
-RSpec.describe Messages, type: :model do
-  describe Messages do
+RSpec.describe Message, type: :model do
+  describe Message do
   		describe "::new" do
   			it "initializes a new message" do
   				message = Message.new

@@ -1,7 +1,8 @@
 require 'rails_helper'
 
 RSpec.describe User, type: :model do
-  require_relative "../models/user"
+ 
+  
 
   describe User do
   	describe "::new" do
@@ -26,7 +27,7 @@ RSpec.describe User, type: :model do
   		it "allows a secure password"
       
   		end
-  end
+
 
 
 end
