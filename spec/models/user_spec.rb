@@ -4,7 +4,7 @@ RSpec.describe User, type: :model do
  
   subject(:user) {FactoryGirl.create(:user)}
 
-  describe User do
+  
   	describe "::new" do
   		it "initializes a new user" do
   			user = User.new
@@ -15,10 +15,9 @@ RSpec.describe User, type: :model do
       it { is_expected.to validate_presence_of(:first_name) }
       it { is_expected.to validate_presence_of(:last_name) }
       it { is_expected.to validate_presence_of(:email) }
-      it { is_expected.to validate_presence_of(:password) }
 
       end
-  end
+  
 
   describe "#self.confirm" do
 		it "finds user" do
@@ -31,8 +30,8 @@ RSpec.describe User, type: :model do
     it "creates a match when params match" do
       @paramsmatch_1 = {age: 45, interests: ["dancing"], language: "Italian"}
       match_object_1 = Match.create(@paramsmatch_1)
-      @paramsuser_1 = {age: 45, interests: ["dancing"], languages: ["Italian"]}
-      user_1 = User.new(@paramsuser_1)
+      @paramsuser_1 = {first_name: "Val", last_name: "Jones", email: "a@a.com", password: "123", age: 45, interests: ["dancing"], languages: ["Italian"]}
+      user_1 = User.create(@paramsuser_1)
       matches = user_1.search_for_matches(match_object_1)
       expect(matches).to include(user_1)
     end
