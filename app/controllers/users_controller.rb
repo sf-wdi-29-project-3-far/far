@@ -88,8 +88,21 @@ class UsersController < ApplicationController
     redirect_to edit_user_path
   end
 
-  def art_params
-    params.require(:art).permit(:dancing, :singing, :theatre, :painting) 
+  def new_match
+    @match = Match.new()
+    render :match_form
+  end
+
+  def find_match
+    @user = current_user
+    @form_match = Match.create(match_params)
+    @matches = @user.search_for_matches(@form_match)
+    render :matches
+  end
+
+
+  def match_params
+    params.require(:match).permit(:language, :origin_country, :current_country, :male, :female, :other_gender, :age, :interests=>[]) 
   end
 
   private

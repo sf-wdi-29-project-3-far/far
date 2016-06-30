@@ -6,9 +6,9 @@
 
   <div class="top-bar-right">
     <ul class="menu">
-      <li class="menu"><%= button_to "Members", users_path, method: :get, class: "button" %></li>
       <% if current_user %>
-        <li class="menu"><%= button_to 'My Profile', user_path(current_user), class: "currUser button", method: :get %></li>
+        <li class="menu"><%= button_to 'My Profile', user_path(current_user), method: :get, class: "currUser button" %></li>
+        <li class="menu"><%= button_to "Members", users_path, method: :get, class: "button" %></li>
         <li class="menu"><%= button_to "Messages", conversations_path, class: "button", method: :get %></li>
         <li class="menu"><%= button_to "Sign Out", sessions_path, method: :delete, class: "button" %></li>
       <% else %>

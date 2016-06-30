@@ -1,0 +1,62 @@
+<h1>Find a new match</h1>
+
+
+<%= form_for(@match) do |f| %>
+  
+  <div class="field">
+  	Language: <br><%= select_tag("match[language]", options_for_select(["English", "Spanish", "Italiano"]), {include_blank: '--Select a Language--'}) %>
+  </div>
+  <div class="field">
+	 Country of Origin: <br><%= select_tag("match[origin_country]", options_for_select(["Mexico", "USA", "Italy"]), {include_blank: '--Select a Country--'}) %>
+  </div>
+  <div class="field">
+    Current Country: <br><%= select_tag("match[current_country]", options_for_select(["Mexico", "USA", "Italy"]), {include_blank: '--Select a Country--'}) %>
+  </div>
+
+  <div class="field">
+    <%= f.label :age %><br>
+    <%= f.number_field :age %>
+  </div>
+
+  <div class="field">
+    <%= f.radio_button :male, true %>
+    <%= f.label :male %><br>
+    <%= f.radio_button :female, true %>
+    <%= f.label :female %><br>
+    <%= f.radio_button :other_gender, true %>
+    <%= f.label :other_gender %><br>
+  </div>
+
+  <div class="field">
+  	<h1>Arts</h1>
+	<input type="checkbox" name="match[interests][]" value="dancing">Dancing</input>
+	<input type="checkbox" name="match[interests][]" value="singing">Singing</input>
+	<input type="checkbox" name="match[interests][]" value="painting">Painting</input>
+	<input type="checkbox" name="match[interests][]" value="theatre">Theatre</input>
+  </div>
+
+  <h1>Sports</h1>
+	<input type="checkbox" name="match[interests][]" value="football">Football</input>
+	<input type="checkbox" name="match[interests][]" value="soccer">Soccer</input>
+	<input type="checkbox" name="match[interests][]" value="basketball">Basketball</input>
+	<input type="checkbox" name="match[interests][]" value="tennis">Tennis</input>
+  </div>
+
+  <h1>Food</h1>
+	<input type="checkbox" name="match[interests][]" value="spanish">Spanish</input>
+	<input type="checkbox" name="match[interests][]" value="korean">Korean</input>
+	<input type="checkbox" name="match[interests][]" value="mexican">Mexican</input>
+	<input type="checkbox" name="match[interests][]" value="italian">Italian</input>
+  </div>
+
+	<h1>Music</h1>
+	<input type="checkbox" name="match[interests][]" value="pop">Pop</input>
+	<input type="checkbox" name="match[interests][]" value="rock">Rock</input>
+	<input type="checkbox" name="match[interests][]" value="jazz">Jazz</input>
+	<input type="checkbox" name="match[interests][]" value="blues">Blues</input>
+  </div>
+
+  <div class="actions">
+    <button type="submit" class="button">Find friends!</button>
+  </div>
+<% end %>

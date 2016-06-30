@@ -2,6 +2,12 @@
   <%= button_to 'Show Previous', '?m=all', class: 'button' %>
 <% end %>
 
+<% if current_user.id == @sender.id %>
+  <h3>Your Conversation with <%= @recipient.first_name %></h3>
+<% else %>
+  <h3>Your Conversation with <%= @sender.first_name %></h3>
+<% end %>
+
 <div class='ui segment'>
   <% @messages.each do |message| %>
   <% if message.body %>

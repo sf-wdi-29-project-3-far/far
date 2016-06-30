@@ -1,20 +1,13 @@
 <p id="notice"><%= notice %></p>
 <%= button_to 'Back', users_path, class: 'button', method: :get %>
 
-<% unless current_user == @user || current_user.friends_with?(@user) || current_user.friend_pending?(@user) || current_user.friend_request?(@user) %>
-  <%= button_to 'Add Friend', request_path(@user), method: :post, class: 'button' %>
-<% end %>
-
-<% if current_user == @user %>
-  <%= button_to 'Edit Profile', edit_user_path(@user), class: 'button' %>
-<% end %>
-
 <% if current_user.friend_request?(@user) %>
   <%= button_to 'Accept', accept_path(@user), method: :post, class: 'button' %>
   <%= button_to 'Decline', decline_path(@user), method: :post, class: 'button' %>
 <% end %>
 
 <% if current_user.friends_with?(@user) %>
+  <%= button_to 'Send Message', conversations_path(sender_id: current_user.id, recipient_id: @user.id), class: 'button', method: :post %>
   <%= button_to 'Remove', remove_path(@user), method: :post, class: 'button' %>
 <% end %>
 
@@ -45,9 +38,7 @@
               <%= @user.current_city %><br>
               <strong>Origin city:</strong>
               <%= @user.origin_city %><br>
-              <br>
-              <strong>Native language:</strong>
-              <%= @user.native_language %><br>
+              <br> 
               <strong>Languages:</strong>
               <%= @user.languages %>
             </p>
@@ -74,8 +65,9 @@
 <% if current_user == @user %>
   <%= button_to 'Edit Profile', edit_user_path(@user), class: 'button' %>
 <% end %>
-<% if current_user != @user %>
-  <%= button_to 'Send Friend Request', request_path(@user), :method => :post, class: 'button' %>
+
+<% unless current_user == @user || current_user.friends_with?(@user) || current_user.friend_pending?(@user) || current_user.friend_request?(@user) %>
+  <%= button_to 'Send Friend Request', request_path(@user), method: :post, class: 'button' %>
 <% end %>
 
 <h3>Friends</h3>
