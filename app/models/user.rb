@@ -4,8 +4,11 @@ class User < ActiveRecord::Base
   belongs_to :sport
   belongs_to :food
 
+  validates :first_name, presense: true
+  validates :last_name, presense: true
   validates :email, presence: true, confirmation: true, uniqueness: true
   validates :password, presence: true
+
 
   has_secure_password
   def self.confirm(params)

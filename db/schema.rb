@@ -117,6 +117,7 @@ ActiveRecord::Schema.define(version: 20160629231807) do
     t.integer  "age"
     t.datetime "created_at",                   null: false
     t.datetime "updated_at",                   null: false
+    t.text     "languages",       default: [],              array: true
     t.integer  "art_id"
     t.integer  "music_id"
     t.integer  "food_id"
