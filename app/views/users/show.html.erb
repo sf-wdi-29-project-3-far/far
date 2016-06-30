@@ -38,14 +38,14 @@
               <%= @user.current_city %><br>
               <strong>Origin city:</strong>
               <%= @user.origin_city %><br>
-              <br> 
+              <br>
               <strong>Languages:</strong>
               <%= @user.languages %>
             </p>
           </div>
           <div class="large-4 medium-4 columns">
             <p>
-              <img src="https://i.ytimg.com/vi/tntOCGkgt98/maxresdefault.jpg" title="cat-burrito" alt="cat-burrito">
+              <%= image_tag(@user.image) %>
             </p>
           </div>
         </div>
@@ -92,4 +92,3 @@
     </ul>
   <% end %>
 <% end %>
-

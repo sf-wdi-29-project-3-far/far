@@ -50,7 +50,6 @@ gem 'awesome_print', require: 'ap'
 
 gem 'faker'
 
-gem 'paperclip'
 
 gem 'twitter-bootstrap-rails'
 
@@ -58,6 +57,3 @@ gem 'twitter-bootstrap-rails'
 gem 'has_friendship'
 
 gem 'foundation-rails'
-
-
-

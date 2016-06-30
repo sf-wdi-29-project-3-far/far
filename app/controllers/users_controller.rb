@@ -12,7 +12,7 @@ class UsersController < ApplicationController
   # GET /users/1.json
   def show
     @user = User.find(params[:id])
-    if current_user == nil 
+    if current_user == nil
       redirect_to sign_in_path
     else
       render :show
@@ -102,7 +102,7 @@ class UsersController < ApplicationController
 
 
   def match_params
-    params.require(:match).permit(:language, :origin_country, :current_country, :male, :female, :other_gender, :age, :interests=>[]) 
+    params.require(:match).permit(:language, :origin_country, :current_country, :male, :female, :other_gender, :age, :interests=>[])
   end
 
   private
@@ -113,7 +113,7 @@ class UsersController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def user_params
-      params.require(:user).permit(:first_name, :last_name, :email, :email_confirmation, :password, :password_confirmation, :current_city, :origin_city, :native_language, :languages, :age)
+      params.require(:user).permit(:first_name, :last_name, :email, :email_confirmation, :password, :password_confirmation, :current_city, :origin_city, :native_language, :languages, :age, :image)
     end
 
 
