@@ -24,6 +24,7 @@ Rails.application.routes.draw do
   #conversation/ message routes
   resources :conversations do
     resources :messages
+    resources :referals
   end
 
   #match form routes

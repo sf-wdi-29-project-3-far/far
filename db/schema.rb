@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160629231807) do
+ActiveRecord::Schema.define(version: 20160630160509) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -91,6 +91,15 @@ ActiveRecord::Schema.define(version: 20160629231807) do
     t.boolean  "HipHop_Rap"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
+  end
+
+  create_table "referals", force: :cascade do |t|
+    t.integer  "referer_id"
+    t.integer  "referee_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string   "title"
+    t.text     "body"
   end
 
   create_table "sports", force: :cascade do |t|
