@@ -1,9 +1,7 @@
 <!-- Nav Bar -->
 <div class="top-bar">
   <div class="top-bar-left">
-    <ul class="dropdown menu" data-dropdown-menu>
-      <li class="menu-text"><a href="/">Friends Around the World</a></li>
-    </ul>
+    <a href="/" class="menu-text">Logo</a>
   </div>
 
   <div class="top-bar-right">
@@ -17,6 +15,7 @@
         <li class="menu"><%= button_to "Sign in", sign_in_path, method: :get, class: "button" %></li>
         <li class="menu"><%= button_to "Sign up", new_user_path, method: :get, class: "button" %></li>
       <% end %>
+
       <li class="menu"><input type="search" placeholder="Search"></li>
       <li class="menu"><button type="button" class="button">Search</button></li>
     </ul>
