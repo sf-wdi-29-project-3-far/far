@@ -1,0 +1,2 @@
+class ReferalsController < ConversationsController
+end
