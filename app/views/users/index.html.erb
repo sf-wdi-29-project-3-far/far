@@ -17,7 +17,7 @@
   <tbody>
     <% @users.each do |user| %>
       <tr>
-        <td><%= link_to "#{user.first_name} #{user.last_name}", "users/#{user.id}" %></td>
+        <td><%= link_to "#{user.first_name} #{user.last_name}", user %></td>
         <td><%= user.email %></td>
         <td><%= user.current_city %></td>
         <td><%= user.origin_city %></td>
