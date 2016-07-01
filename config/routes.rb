@@ -18,8 +18,6 @@ Rails.application.routes.draw do
   post '/users/:id/block', to: 'friendships#block', as: 'block'
   post '/users/:id/unblock', to: 'friendships#unblock', as: 'unblock'
 
-  #category routes
-  post '/users/:id/art', to: 'users#arts', as: 'arts'
 
   #conversation/ message routes
   resources :conversations do
@@ -30,4 +28,7 @@ Rails.application.routes.draw do
   get '/users/:id/match/new', to: "users#new_match", as: 'new_match'
   post '/users/:id/match', to: "users#find_match", as: 'matches'
 
+  #video
+  get '/users/:id/video', to: "videos#create", as: 'new_video'
+  # post '/users/:id/video', to: "videos#show"
 end

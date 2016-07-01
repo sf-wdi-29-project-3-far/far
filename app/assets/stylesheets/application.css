@@ -34,3 +34,128 @@
 .menu {
     background: #1C1C1C;
 }
+
+.profilePic {
+	width: 68%;
+	height: 300px;
+	border: 1px solid gray;
+  	border-radius: 50%;
+  	margin: 10px;
+}
+
+.attributes {
+	font-size: 20px;
+}
+
+.icons {
+	font-size: 30px;
+}
+
+.generalInfo {
+	border: 2px solid gray;
+	padding: 10px;
+	box-shadow: 10px 10px 5px #888888;
+}
+
+.line {
+	width: 90%;
+}
+
+.checkbox {
+	padding-left: 110px;
+}
+
+.card {
+	border: 2px solid gray;
+	box-shadow: 10px 10px 5px #888888;
+}
+
+.formCard {
+	border: 2px solid gray;
+	box-shadow: 10px 10px 5px #888888;
+	margin-top: 20px;
+	margin-bottom: 50px;
+}
+
+.profileTitle {
+	padding-top: 20px;
+	padding-left: 50px;
+	padding-right: 50px;
+	padding-bottom: 15px;
+}
+
+.titles {
+	text-align: center;
+	margin-bottom: 40px;
+}
+
+.descriptions {
+	padding-left: 60px;
+	padding-right: 120px;	
+	font-size: 15px;
+}
+ .edit {
+ 	margin-top: -30px;
+ 	text-align: center;
+ }
+
+h2 {
+	width: 92%;
+}
+
+ h2:after {
+    content:' ';
+    display:block;
+    border: 1px solid black;
+}
+
+.interests {
+	background-color: #e74c3c;
+}
+
+.showUserImg {
+	height: 160px;
+  	width: 100%;
+  	border: 1px solid gray;
+  	border-radius: 6px;
+  	margin: 10px;
+}
+
+#showFriends {
+	margin-top: 50px;
+	padding-bottom: 40px;
+}
+
+#showFriendsDiv {
+	margin-left: 20px;
+	margin-right: 20px;
+}
+
+.form {
+	padding-left: 60px;
+	padding-right: 60px;
+}
+
+.formTitle {
+	font-weight: bold;
+}
+
+p {
+	font-weight: bold;
+	font-size: 14px;
+	margin-left: 70px;
+	padding-top: 40px;
+}
+
+.radiosMatch {
+	margin-left: 100px;
+}
+
+.matches {
+	margin: 20px;
+}
+
+
+
+
+

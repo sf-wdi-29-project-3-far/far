@@ -59,5 +59,5 @@ gem 'has_friendship'
 
 gem 'foundation-rails'
 
-
+gem "opentok", "~> 2.3"
 

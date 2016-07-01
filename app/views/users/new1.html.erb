@@ -1,0 +1,170 @@
+<div class="row formCard">
+  <h2 class="profileTitle titles">Create Profile</h2>
+  <%= form_for(@user) do |f| %>
+    <% if @user.errors.any? %>
+      <div id="error_explanation">
+        <h2><%= pluralize(@user.errors.count, "error") %> prohibited this user from being saved:</h2>
+
+        <ul>
+        <% @user.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+        </ul>
+      </div>
+    <% end %>
+    
+    <div class="row form">  
+      <div class="large-6 columns">
+        <%= f.label :first_name, class: "formTitle" %>
+        <%= f.text_field :first_name %>  
+        <%= f.label :last_name, class: "formTitle" %>
+        <%= f.text_field :last_name %>
+        <%= f.label :email, class: "formTitle" %>
+        <%= f.text_field :email %>
+        <%= f.label :password, class: "formTitle" %>
+        <%= f.password_field :password %>
+      </div>
+      <div class="large-6 columns">
+        <%= f.label :age, class: "formTitle" %>
+        <%= f.number_field :age %>
+        <%= f.label :current_city, class: "formTitle" %>
+        <%= f.text_field :current_city %>
+        <%= f.label :origin_country, class: "formTitle" %>
+        <%= f.text_field :origin_country %> 
+        <%= f.label :current_country, class: "formTitle" %>
+        <%= f.text_field :current_country %> 
+      </div>
+    </div>
+    <div class="row form">
+      <div class="large-6 columns">
+        <p>Gender</p>
+        <input type="radio" name="gender" value="true"> Male<br>
+        <input type="radio" name="gender" value="true"> Female<br>
+        <input type="radio" name="gender" value="true"> Other
+      </div>
+      <div class="large-6 columns">
+        <%= f.label :occupation, class: "formTitle" %>
+        <%= f.text_field :occupation %>
+      </div>
+    </div>
+    <div class="row form">
+      <p>Arts</p>
+      <hr class="line">
+      <div class="large-6 columns radios">
+        <input type="checkbox" name="user[interests][]" value="dancing">&emsp;Dancing</input><br>
+        <input type="checkbox" name="user[interests][]" value="singing">&emsp;Singing</input><br>
+        <input type="checkbox" name="user[interests][]" value="photography">&emsp;Photography</input><br>
+      </div>
+      <div class="large-6 columns radios">
+        <input type="checkbox" name="user[interests][]" value="theatre">&emsp;Theatre</input><br>
+        <input type="checkbox" name="user[interests][]" value="writing">&emsp;Writing</input><br>
+        <input type="checkbox" name="user[interests][]" value="painting">&emsp;Painting</input><br>
+      </div>
+    </div>
+
+    <div class="row form">
+      <p>Sports</p>
+      <hr class="line">
+      <div class="large-4 columns radios">
+        <input type="checkbox" name="user[interests][]" value="soccer">&emsp;Soccer</input><br>
+        <input type="checkbox" name="user[interests][]" value="football">&emsp;Football</input><br>
+        <input type="checkbox" name="user[interests][]" value="basketball">&emsp;Basketball</input><br>
+      </div>
+      <div class="large-4 columns radios">
+        <input type="checkbox" name="user[interests][]" value="tennis">&emsp;Tennis</input><br>
+        <input type="checkbox" name="user[interests][]" value="rugby">&emsp;Rugby</input><br>
+        <input type="checkbox" name="user[interests][]" value="F1">&emsp;F1</input><br>
+      </div>
+      <div class="large-4 columns radios">
+        <input type="checkbox" name="user[interests][]" value="boxing">&emsp;Boxing</input><br>
+        <input type="checkbox" name="user[interests][]" value="golf">&emsp;Golf</input><br>
+        <input type="checkbox" name="user[interests][]" value="baseball">&emsp;Baseball</input><br>
+      </div>
+    </div>
+
+    <div class="row form">
+      <p>Music</p>
+      <hr class="line">
+      <div class="large-3 columns radios">
+        <input type="checkbox" name="user[interests][]" value="pop">&emsp;Pop</input><br>
+        <input type="checkbox" name="user[interests][]" value="rock">&emsp;Rock</input><br>
+        <input type="checkbox" name="user[interests][]" value="randb">&emsp;R&B</input><br>
+      </div>
+      <div class="large-3 columns radios">
+        <input type="checkbox" name="user[interests][]" value="classical">&emsp;Classical</input><br>
+        <input type="checkbox" name="user[interests][]" value="jazz">&emsp;Jazz</input><br>
+        <input type="checkbox" name="user[interests][]" value="blues">&emsp;Blues</input><br>
+      </div>
+      <div class="large-3 columns radios">
+        <input type="checkbox" name="user[interests][]" value="folk">&emsp;Folk</input><br>
+        <input type="checkbox" name="user[interests][]" value="alternative">&emsp;Alternative</input><br>
+        <input type="checkbox" name="user[interests][]" value="country">&emsp;Country</input><br>
+      </div>
+      <div class="large-3 columns radios">
+        <input type="checkbox" name="user[interests][]" value="dance">&emsp;Dance</input><br>
+        <input type="checkbox" name="user[interests][]" value="latin">&emsp;Latin</input><br>
+        <input type="checkbox" name="user[interests][]" value="HipHop_Rap">&emsp;Hip Hop / Rap</input><br>
+      </div>
+    </div>
+
+    <div class="row form">
+      <p>Food</p>
+      <hr class="line">
+      <div class="large-4 columns radios">
+        <input type="checkbox" name="user[interests][]" value="italian">&emsp;Italian</input><br>
+        <input type="checkbox" name="user[interests][]" value="mexican">&emsp;Mexican</input><br>
+        <input type="checkbox" name="user[interests][]" value="japanese">&emsp;Japanese</input><br>
+      </div>
+      <div class="large-4 columns radios">
+        <input type="checkbox" name="user[interests][]" value="thai">&emsp;Thai</input><br>
+        <input type="checkbox" name="user[interests][]" value="chinese">&emsp;Chinese</input><br>
+        <input type="checkbox" name="user[interests][]" value="spanish">&emsp;Spanish</input><br>
+      </div>
+      <div class="large-4 columns radios">
+        <input type="checkbox" name="user[interests][]" value="greek">&emsp;Greek</input><br>
+        <input type="checkbox" name="user[interests][]" value="indian">&emsp;Indian</input><br>
+        <input type="checkbox" name="user[interests][]" value="korean">&emsp;Korean</input><br>
+      </div>
+    </div>
+
+    <div class="row form">
+      <p>Languages</p>
+      <hr class="line">
+      <div class="large-4 columns radios">
+        <input type="checkbox" name="user[languages][]" value="English">&emsp;English</input><br>
+        <input type="checkbox" name="user[languages][]" value="Spanish">&emsp;Spanish</input><br>
+        <input type="checkbox" name="user[languages][]" value="Chinese">&emsp;Chinese</input><br>
+      </div>
+      <div class="large-4 columns radios">
+        <input type="checkbox" name="user[languages][]" value="Russian">&emsp;Russian</input><br>
+        <input type="checkbox" name="user[languages][]" value="German">&emsp;German</input><br>
+        <input type="checkbox" name="user[languages][]" value="French">&emsp;French</input><br>
+      </div>
+      <div class="large-4 columns radios">
+        <input type="checkbox" name="user[languages][]" value="Italian">&emsp;Italian</input><br>
+        <input type="checkbox" name="user[languages][]" value="Hindi">&emsp;Hindi</input><br>
+        <input type="checkbox" name="user[languages][]" value="Japanese">&emsp;Japanese</input><br>
+      </div>
+    </div>
+
+    <div class="row form">
+      <%= f.label :description %>
+      <%= f.text_area :description %> 
+
+      <%= f.label :why_am_i_here %>
+      <%= f.text_area :why_am_i_here %> 
+
+      <%= f.label :hobbies %>
+      <%= f.text_area :hobbies %> 
+    </div>
+  
+    <div class="row form">
+      <%= f.label :photo_url %>
+      <%= f.text_field :photo_url %>
+    </div>
+    <div class="actions">
+      <button type="submit" class="button">Save!</button>
+    </div>
+  <% end %>
+  <br><br>
+</div>

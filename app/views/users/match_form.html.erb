@@ -1,62 +1,110 @@
-<h1>Find a new match</h1>
 
+<div class="row formCard">
+  <h2 class="profileTitle titles">Find your next Friend Around the World</h2>
+  <%= form_for(@match) do |f| %>
 
-<%= form_for(@match) do |f| %>
-  
-  <div class="field">
-  	Language: <br><%= select_tag("match[language]", options_for_select(["English", "Spanish", "Italiano"]), {include_blank: '--Select a Language--'}) %>
-  </div>
-  <div class="field">
-	 Country of Origin: <br><%= select_tag("match[origin_country]", options_for_select(["Mexico", "USA", "Italy"]), {include_blank: '--Select a Country--'}) %>
-  </div>
-  <div class="field">
-    Current Country: <br><%= select_tag("match[current_country]", options_for_select(["Mexico", "USA", "Italy"]), {include_blank: '--Select a Country--'}) %>
-  </div>
+    <div class="row form">  
+      <div class="large-6 columns">
+        <b>Language</b> <br><%= select_tag("match[language]", options_for_select(["English", "Spanish", "Chinese", "Russian", "German", "French", "Italian", "Hindi", "Japanese"]), {include_blank: '--Select a Language--'}) %>
+        <b>Country of Origin</b> <br><%= select_tag("match[origin_country]", options_for_select(countries = ["Afghanistan", "Albania", "Algeria", "American Samoa", "Andorra", "Angola", "Anguilla", "Antarctica", "Antigua and Barbuda", "Argentina", "Armenia", "Aruba", "Australia", "Austria", "Azerbaijan", "Bahamas", "Bahrain", "Bangladesh", "Barbados", "Belarus", "Belgium", "Belize", "Benin", "Bermuda", "Bhutan", "Bolivia", "Bosnia and Herzegowina", "Botswana", "Bouvet Island", "Brazil", "British Indian Ocean Territory", "Brunei Darussalam", "Bulgaria", "Burkina Faso", "Burundi", "Cambodia", "Cameroon", "Canada", "Cape Verde", "Cayman Islands", "Central African Republic", "Chad", "Chile", "China", "Christmas Island", "Cocos (Keeling) Islands", "Colombia", "Comoros", "Congo", "Congo, the Democratic Republic of the", "Cook Islands", "Costa Rica", "Cote d'Ivoire", "Croatia (Hrvatska)", "Cuba", "Cyprus", "Czech Republic", "Denmark", "Djibouti", "Dominica", "Dominican Republic", "East Timor", "Ecuador", "Egypt", "El Salvador", "Equatorial Guinea", "Eritrea", "Estonia", "Ethiopia", "Falkland Islands (Malvinas)", "Faroe Islands", "Fiji", "Finland", "France", "France Metropolitan", "French Guiana", "French Polynesia", "French Southern Territories", "Gabon", "Gambia", "Georgia", "Germany", "Ghana", "Gibraltar", "Greece", "Greenland", "Grenada", "Guadeloupe", "Guam", "Guatemala", "Guinea", "Guinea-Bissau", "Guyana", "Haiti", "Heard and Mc Donald Islands", "Holy See (Vatican City State)", "Honduras", "Hong Kong", "Hungary", "Iceland", "India", "Indonesia", "Iran (Islamic Republic of)", "Iraq", "Ireland", "Israel", "Italy", "Jamaica", "Japan", "Jordan", "Kazakhstan", "Kenya", "Kiribati", "Korea, Democratic People's Republic of", "Korea, Republic of", "Kuwait", "Kyrgyzstan", "Lao, People's Democratic Republic", "Latvia", "Lebanon", "Lesotho", "Liberia", "Libyan Arab Jamahiriya", "Liechtenstein", "Lithuania", "Luxembourg", "Macau", "Macedonia, The Former Yugoslav Republic of", "Madagascar", "Malawi", "Malaysia", "Maldives", "Mali", "Malta", "Marshall Islands", "Martinique", "Mauritania", "Mauritius", "Mayotte", "Mexico", "Micronesia, Federated States of", "Moldova, Republic of", "Monaco", "Mongolia", "Montserrat", "Morocco", "Mozambique", "Myanmar", "Namibia", "Nauru", "Nepal", "Netherlands", "Netherlands Antilles", "New Caledonia", "New Zealand", "Nicaragua", "Niger", "Nigeria", "Niue", "Norfolk Island", "Northern Mariana Islands", "Norway", "Oman", "Pakistan", "Palau", "Panama", "Papua New Guinea", "Paraguay", "Peru", "Philippines", "Pitcairn", "Poland", "Portugal", "Puerto Rico", "Qatar", "Reunion", "Romania", "Russian Federation", "Rwanda", "Saint Kitts and Nevis", "Saint Lucia", "Saint Vincent and the Grenadines", "Samoa", "San Marino", "Sao Tome and Principe", "Saudi Arabia", "Senegal", "Seychelles", "Sierra Leone", "Singapore", "Slovakia (Slovak Republic)", "Slovenia", "Solomon Islands", "Somalia", "South Africa", "South Georgia and the South Sandwich Islands", "Spain", "Sri Lanka", "St. Helena", "St. Pierre and Miquelon", "Sudan", "Suriname", "Svalbard and Jan Mayen Islands", "Swaziland", "Sweden", "Switzerland", "Syrian Arab Republic", "Taiwan, Province of China", "Tajikistan", "Tanzania, United Republic of", "Thailand", "Togo", "Tokelau", "Tonga", "Trinidad and Tobago", "Tunisia", "Turkey", "Turkmenistan", "Turks and Caicos Islands", "Tuvalu", "Uganda", "Ukraine", "United Arab Emirates", "United Kingdom", "United States", "United States Minor Outlying Islands", "Uruguay", "Uzbekistan", "Vanuatu", "Venezuela", "Vietnam", "Virgin Islands (British)", "Virgin Islands (U.S.)", "Wallis and Futuna Islands", "Western Sahara", "Yemen", "Yugoslavia", "Zambia", "Zimbabwe"]), {include_blank: '--Select a Country--'}) %>
+        <b>Current Country</b> <br><%= select_tag("match[current_country]", options_for_select(countries = ["Afghanistan", "Albania", "Algeria", "American Samoa", "Andorra", "Angola", "Anguilla", "Antarctica", "Antigua and Barbuda", "Argentina", "Armenia", "Aruba", "Australia", "Austria", "Azerbaijan", "Bahamas", "Bahrain", "Bangladesh", "Barbados", "Belarus", "Belgium", "Belize", "Benin", "Bermuda", "Bhutan", "Bolivia", "Bosnia and Herzegowina", "Botswana", "Bouvet Island", "Brazil", "British Indian Ocean Territory", "Brunei Darussalam", "Bulgaria", "Burkina Faso", "Burundi", "Cambodia", "Cameroon", "Canada", "Cape Verde", "Cayman Islands", "Central African Republic", "Chad", "Chile", "China", "Christmas Island", "Cocos (Keeling) Islands", "Colombia", "Comoros", "Congo", "Congo, the Democratic Republic of the", "Cook Islands", "Costa Rica", "Cote d'Ivoire", "Croatia (Hrvatska)", "Cuba", "Cyprus", "Czech Republic", "Denmark", "Djibouti", "Dominica", "Dominican Republic", "East Timor", "Ecuador", "Egypt", "El Salvador", "Equatorial Guinea", "Eritrea", "Estonia", "Ethiopia", "Falkland Islands (Malvinas)", "Faroe Islands", "Fiji", "Finland", "France", "France Metropolitan", "French Guiana", "French Polynesia", "French Southern Territories", "Gabon", "Gambia", "Georgia", "Germany", "Ghana", "Gibraltar", "Greece", "Greenland", "Grenada", "Guadeloupe", "Guam", "Guatemala", "Guinea", "Guinea-Bissau", "Guyana", "Haiti", "Heard and Mc Donald Islands", "Holy See (Vatican City State)", "Honduras", "Hong Kong", "Hungary", "Iceland", "India", "Indonesia", "Iran (Islamic Republic of)", "Iraq", "Ireland", "Israel", "Italy", "Jamaica", "Japan", "Jordan", "Kazakhstan", "Kenya", "Kiribati", "Korea, Democratic People's Republic of", "Korea, Republic of", "Kuwait", "Kyrgyzstan", "Lao, People's Democratic Republic", "Latvia", "Lebanon", "Lesotho", "Liberia", "Libyan Arab Jamahiriya", "Liechtenstein", "Lithuania", "Luxembourg", "Macau", "Macedonia, The Former Yugoslav Republic of", "Madagascar", "Malawi", "Malaysia", "Maldives", "Mali", "Malta", "Marshall Islands", "Martinique", "Mauritania", "Mauritius", "Mayotte", "Mexico", "Micronesia, Federated States of", "Moldova, Republic of", "Monaco", "Mongolia", "Montserrat", "Morocco", "Mozambique", "Myanmar", "Namibia", "Nauru", "Nepal", "Netherlands", "Netherlands Antilles", "New Caledonia", "New Zealand", "Nicaragua", "Niger", "Nigeria", "Niue", "Norfolk Island", "Northern Mariana Islands", "Norway", "Oman", "Pakistan", "Palau", "Panama", "Papua New Guinea", "Paraguay", "Peru", "Philippines", "Pitcairn", "Poland", "Portugal", "Puerto Rico", "Qatar", "Reunion", "Romania", "Russian Federation", "Rwanda", "Saint Kitts and Nevis", "Saint Lucia", "Saint Vincent and the Grenadines", "Samoa", "San Marino", "Sao Tome and Principe", "Saudi Arabia", "Senegal", "Seychelles", "Sierra Leone", "Singapore", "Slovakia (Slovak Republic)", "Slovenia", "Solomon Islands", "Somalia", "South Africa", "South Georgia and the South Sandwich Islands", "Spain", "Sri Lanka", "St. Helena", "St. Pierre and Miquelon", "Sudan", "Suriname", "Svalbard and Jan Mayen Islands", "Swaziland", "Sweden", "Switzerland", "Syrian Arab Republic", "Taiwan, Province of China", "Tajikistan", "Tanzania, United Republic of", "Thailand", "Togo", "Tokelau", "Tonga", "Trinidad and Tobago", "Tunisia", "Turkey", "Turkmenistan", "Turks and Caicos Islands", "Tuvalu", "Uganda", "Ukraine", "United Arab Emirates", "United Kingdom", "United States", "United States Minor Outlying Islands", "Uruguay", "Uzbekistan", "Vanuatu", "Venezuela", "Vietnam", "Virgin Islands (British)", "Virgin Islands (U.S.)", "Wallis and Futuna Islands", "Western Sahara", "Yemen", "Yugoslavia", "Zambia", "Zimbabwe"]), {include_blank: '--Select a Country--'}) %>
+      </div>
+      <div class="large-6 columns">
+        <%= f.label :age %>
+        <%= f.number_field :age %>
+        <p>Gender</p>
+        <input type="radio" name="gender" class="radiosMatch" > Male
+        <input type="radio" name="gender" class="radiosMatch" > Female
+        <input type="radio" name="gender" class="radiosMatch" > Other
+      </div>
+    </div>
+   
+    <div class="row form">
+      <p>Arts</p>
+      <hr class="line">
+      <div class="large-6 columns checkbox">
+        <input type="checkbox" name="match[interests][]" value="dancing">&emsp;Dancing</input><br>
+        <input type="checkbox" name="match[interests][]" value="singing">&emsp;Singing</input><br>
+        <input type="checkbox" name="match[interests][]" value="photography">&emsp;Photography</input><br>
+      </div>
+      <div class="large-6 columns checkbox">
+        <input type="checkbox" name="match[interests][]" value="theatre">&emsp;Theatre</input><br>
+        <input type="checkbox" name="match[interests][]" value="writing">&emsp;Writing</input><br>
+        <input type="checkbox" name="match[interests][]" value="painting">&emsp;Painting</input><br>
+      </div>
+    </div>
 
-  <div class="field">
-    <%= f.label :age %><br>
-    <%= f.number_field :age %>
-  </div>
+    <div class="row form">
+      <p>Sports</p>
+      <hr class="line">
+      <div class="large-4 columns checkbox">
+        <input type="checkbox" name="match[interests][]" value="soccer">&emsp;Soccer</input><br>
+        <input type="checkbox" name="match[interests][]" value="football">&emsp;Football</input><br>
+        <input type="checkbox" name="match[interests][]" value="basketball">&emsp;Basketball</input><br>
+      </div>
+      <div class="large-4 columns checkbox">
+        <input type="checkbox" name="match[interests][]" value="tennis">&emsp;Tennis</input><br>
+        <input type="checkbox" name="match[interests][]" value="rugby">&emsp;Rugby</input><br>
+        <input type="checkbox" name="match[interests][]" value="F1">&emsp;F1</input><br>
+      </div>
+      <div class="large-4 columns checkbox">
+        <input type="checkbox" name="match[interests][]" value="boxing">&emsp;Boxing</input><br>
+        <input type="checkbox" name="match[interests][]" value="golf">&emsp;Golf</input><br>
+        <input type="checkbox" name="match[interests][]" value="baseball">&emsp;Baseball</input><br>
+      </div>
+    </div>
 
-  <div class="field">
-    <%= f.radio_button :male, true %>
-    <%= f.label :male %><br>
-    <%= f.radio_button :female, true %>
-    <%= f.label :female %><br>
-    <%= f.radio_button :other_gender, true %>
-    <%= f.label :other_gender %><br>
-  </div>
+    <div class="row form">
+      <p>Food</p>
+      <hr class="line">
+      <div class="large-4 columns checkbox">
+        <input type="checkbox" name="match[interests][]" value="italian">&emsp;Italian</input><br>
+        <input type="checkbox" name="match[interests][]" value="mexican">&emsp;Mexican</input><br>
+        <input type="checkbox" name="match[interests][]" value="japanese">&emsp;Japanese</input><br>
+      </div>
+      <div class="large-4 columns checkbox">
+        <input type="checkbox" name="match[interests][]" value="thai">&emsp;Thai</input><br>
+        <input type="checkbox" name="match[interests][]" value="chinese">&emsp;Chinese</input><br>
+        <input type="checkbox" name="match[interests][]" value="spanish">&emsp;Spanish</input><br>
+      </div>
+      <div class="large-4 columns checkbox">
+        <input type="checkbox" name="match[interests][]" value="greek">&emsp;Greek</input><br>
+        <input type="checkbox" name="match[interests][]" value="indian">&emsp;Indian</input><br>
+        <input type="checkbox" name="match[interests][]" value="korean">&emsp;Korean</input><br>
+      </div>
+    </div>
 
-  <div class="field">
-  	<h1>Arts</h1>
-	<input type="checkbox" name="match[interests][]" value="dancing">Dancing</input>
-	<input type="checkbox" name="match[interests][]" value="singing">Singing</input>
-	<input type="checkbox" name="match[interests][]" value="painting">Painting</input>
-	<input type="checkbox" name="match[interests][]" value="theatre">Theatre</input>
-  </div>
-
-  <h1>Sports</h1>
-	<input type="checkbox" name="match[interests][]" value="football">Football</input>
-	<input type="checkbox" name="match[interests][]" value="soccer">Soccer</input>
-	<input type="checkbox" name="match[interests][]" value="basketball">Basketball</input>
-	<input type="checkbox" name="match[interests][]" value="tennis">Tennis</input>
-  </div>
-
-  <h1>Food</h1>
-	<input type="checkbox" name="match[interests][]" value="spanish">Spanish</input>
-	<input type="checkbox" name="match[interests][]" value="korean">Korean</input>
-	<input type="checkbox" name="match[interests][]" value="mexican">Mexican</input>
-	<input type="checkbox" name="match[interests][]" value="italian">Italian</input>
-  </div>
-
-	<h1>Music</h1>
-	<input type="checkbox" name="match[interests][]" value="pop">Pop</input>
-	<input type="checkbox" name="match[interests][]" value="rock">Rock</input>
-	<input type="checkbox" name="match[interests][]" value="jazz">Jazz</input>
-	<input type="checkbox" name="match[interests][]" value="blues">Blues</input>
-  </div>
-
-  <div class="actions">
-    <button type="submit" class="button">Find friends!</button>
-  </div>
-<% end %>
+    
+    <div class="row form">
+      <p>Music</p>
+      <hr class="line">
+      <div class="large-3 columns checkbox">
+        <input type="checkbox" name="match[interests][]" value="pop">&emsp;Pop</input><br>
+        <input type="checkbox" name="match[interests][]" value="rock">&emsp;Rock</input><br>
+        <input type="checkbox" name="match[interests][]" value="randb">&emsp;R&B</input><br>
+      </div>
+      <div class="large-3 columns checkbox">
+        <input type="checkbox" name="match[interests][]" value="classical">&emsp;Classical</input><br>
+        <input type="checkbox" name="match[interests][]" value="jazz">&emsp;Jazz</input><br>
+        <input type="checkbox" name="match[interests][]" value="blues">&emsp;Blues</input><br>
+      </div>
+      <div class="large-3 columns checkbox">
+        <input type="checkbox" name="match[interests][]" value="folk">&emsp;Folk</input><br>
+        <input type="checkbox" name="match[interests][]" value="alternative">&emsp;Alternative</input><br>
+        <input type="checkbox" name="match[interests][]" value="country">&emsp;Country</input><br>
+      </div>
+      <div class="large-3 columns checkbox">
+        <input type="checkbox" name="match[interests][]" value="dance">&emsp;Dance</input><br>
+        <input type="checkbox" name="match[interests][]" value="latin">&emsp;Latin</input><br>
+        <input type="checkbox" name="match[interests][]" value="HipHop_Rap">&emsp;Hip Hop / Rap</input><br>
+      </div>
+    </div>
+    <br><br>
+    <div class="row">
+      <div class="large-12 columns large-offset-5">
+        <button type="submit" class="button interests">Find Friends!</button>
+      </div>
+    </div>
+  <% end %>
+  <br><br>
+</div>

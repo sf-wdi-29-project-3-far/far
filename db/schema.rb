@@ -11,7 +11,6 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-
 ActiveRecord::Schema.define(version: 20160629231807) do
 
   # These are extensions that must be enabled in order to support this database
@@ -59,20 +58,6 @@ ActiveRecord::Schema.define(version: 20160629231807) do
     t.integer  "status"
   end
 
-<<<<<<< HEAD
-  create_table "messages", force: :cascade do |t|
-    t.text     "body"
-    t.integer  "conversation_id"
-    t.integer  "user_id"
-    t.boolean  "read",            default: false
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  add_index "messages", ["conversation_id"], name: "index_messages_on_conversation_id", using: :btree
-  add_index "messages", ["user_id"], name: "index_messages_on_user_id", using: :btree
-
-=======
   create_table "matches", force: :cascade do |t|
     t.string   "origin_country"
     t.string   "current_country"
@@ -86,7 +71,18 @@ ActiveRecord::Schema.define(version: 20160629231807) do
     t.text     "interests",       default: [],              array: true
   end
 
->>>>>>> search
+  create_table "messages", force: :cascade do |t|
+    t.text     "body"
+    t.integer  "conversation_id"
+    t.integer  "user_id"
+    t.boolean  "read",            default: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "messages", ["conversation_id"], name: "index_messages_on_conversation_id", using: :btree
+  add_index "messages", ["user_id"], name: "index_messages_on_user_id", using: :btree
+
   create_table "musics", force: :cascade do |t|
     t.boolean  "pop"
     t.boolean  "rock"

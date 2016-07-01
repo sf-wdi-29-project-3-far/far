@@ -4,8 +4,9 @@ class User < ActiveRecord::Base
   belongs_to :sport
   belongs_to :food
 
-  validates :email, presence: true, confirmation: true, uniqueness: true
-  validates :password, presence: true
+  validates :first_name, :last_name, :age, :email, :password, presence: true
+  validates :email, uniqueness: true, confirmation: true
+  validates :password, confirmation:true
 
   has_secure_password
   def self.confirm(params)
@@ -107,9 +108,11 @@ class User < ActiveRecord::Base
       $i += 1
     end
 
-    return matches
+    ordered_matches = matches.sort_by{|match| match[:count]}
 
+    return ordered_matches.reverse
 
   end
 
 end
+

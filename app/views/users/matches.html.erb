@@ -1,38 +1,29 @@
-<h1>Matches</h1>
+<div class="row card matches">
+  <h2 class="profileTitle titles">Hi, <%= @user.first_name %></h2>
 
-<h3>Hi <%= @user.first_name %></h3>
-
-  <h2>Your search parameters:</h2> 
+  <br><br>
+  <h2 class="profileTitle titles">Your search parameters:</h2> 
   <%= @form_match.language %><br>           
   <%= @form_match.origin_country %><br>
   <%= @form_match.age %><br>
-  <%= @form_match.interests %>
+  <div>
+    <% @form_match.interests.each do |interest| %>
+      <button class="button interests"><%= interest %></button>
+    <% end %>
+  </div>
 
 
 <h2>Your matches:</h2><br>
-<table>
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th>Email</th>
-      <th>Languages</th>
-      <th>Origin Country</th>
-      <th>Age</th>
-      <th>Interests</th>
-    </tr>
-  </thead>
 
-  <tbody>
+  <div class="row" id="showFriendsDiv">
     <% @matches.each do |user| %>
-      <tr>
-        <td><%= link_to "#{user.first_name} #{user.last_name}", "users/#{user.id}" %></td>
-        <td><%= user.email %></td>
-        <td><%= user.languages %></td>
-        <td><%= user.origin_country %></td>
-        <td><%= user.age %></td>
-        <td><%= user.interests %></td>
-        <td><%= user.count %></td>
-      </tr>
+      <% if user.id != current_user.id %>
+        <div class="columns large-2">
+          <a href='/users/<%= user.id %>'><img src="<%= user.photo_url %>" class="showUserImg" ></a>
+          <a href="/users/<%= user.id %>"><h6 style="text-align: center"><b><%= user.first_name %></b></h6></a>
+          <h6 style="text-align: center"><%= user.current_country %></h6>
+        </div>
+      <% end %>
     <% end %>
-  </tbody>
-</table>
+  </div>  
+</div>

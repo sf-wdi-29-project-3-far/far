@@ -22,11 +22,7 @@ class UsersController < ApplicationController
   # GET /users/new
   def new
     @user = User.new
-  end
-
-  # GET /users/1/edit
-  def edit
-    @art = Art.new()
+    render :new
   end
 
   # POST /users
@@ -36,26 +32,23 @@ class UsersController < ApplicationController
     if @user.save
       login(@user)
       flash[:success] = "Welcome to FAR!"
-      redirect_to @user
+      render :edit_full_profile
     else
       redirect_to new_user_path, flash: {error: @user.errors.full_messages.to_sentence}
     end
+  end
 
-    # respond_to do |format|
-    #   if @user.save
-    #     login(@user)
-    #     format.html { redirect_to @user, notice: 'User was successfully created.' }
-    #     format.json { render :show, status: :created, location: @user }
-    #   else
-    #     format.html { render :new }
-    #     format.json { render json: @user.errors, status: :unprocessable_entity }
-    #   end
-    # end
+  # GET /users/1/edit
+  def edit
+    @user = User.find(params[:id])
+    render :edit_full_profile
   end
 
   # PATCH/PUT /users/1
   # PATCH/PUT /users/1.json
   def update
+    @user = User.find(params[:id])
+    @user.update_attributes(user_params)
     respond_to do |format|
       if @user.update(user_params)
         format.html { redirect_to @user, notice: 'User was successfully updated.' }
@@ -79,14 +72,6 @@ class UsersController < ApplicationController
     end
   end
 
-    # POST for art category
-  def arts
-    @user = current_user
-    @art = Art.create(art_params)
-    @user.art_id = @art.id
-    @user.save
-    redirect_to edit_user_path
-  end
 
   def new_match
     @match = Match.new()
@@ -96,6 +81,7 @@ class UsersController < ApplicationController
   def find_match
     @user = current_user
     @form_match = Match.create(match_params)
+    binding.pry
     @matches = @user.search_for_matches(@form_match)
     render :matches
   end
@@ -113,8 +99,10 @@ class UsersController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def user_params
-      params.require(:user).permit(:first_name, :last_name, :email, :email_confirmation, :password, :password_confirmation, :current_city, :origin_city, :native_language, :languages, :age)
+      params.require(:user).permit(:first_name, :last_name, :email, :email_confirmation, :password, :password_confirmation, :current_city, :origin_city, :age, :occupation, :origin_country, :facebook_url, :twitter_url, :snapchat_url, :description, :why_am_i_here, :hobbies, :photo_url, :male, :female, :other_gender, :count, :current_country, :languages=>[], :interests=>[])
     end
+
+
 
 
 end
