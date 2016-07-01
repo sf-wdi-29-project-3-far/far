@@ -157,7 +157,7 @@ ActiveRecord::Schema.define(version: 20160630224052) do
     t.text     "description"
     t.text     "why_am_i_here"
     t.text     "hobbies"
-    t.string   "photo_url"
+    t.string   "image"
     t.boolean  "male"
     t.boolean  "female"
     t.boolean  "other_gender"

@@ -17,7 +17,7 @@
 
 <div class="row">
   <div class="large-5 columns">
-    <img class="profilePic" src="<%= @user.photo_url %>" alt="<%= @user.first_name %>'s Profile Pic">
+    <img class="profilePic" src="<%= @user.image %>" alt="<%= @user.first_name %>'s Profile Pic">
   </div>
   <div class="large-7 columns">
     <div class="row">
@@ -128,7 +128,7 @@
   <div class="row" id="showFriendsDiv">
     <% @user.friends.each do |friend| %>
       <div class="columns large-2">
-        <a href='/users/<%= friend.id %>'><img src="<%= friend.photo_url %>" class="showUserImg" ></a>
+        <a href='/users/<%= friend.id %>'><img src="<%= friend.image %>" class="showUserImg" ></a>
         <a href="/users/<%= friend.id %>"><h6 style="text-align: center"><b><%= friend.first_name %></b></h6></a>
         <h6 style="text-align: center"><%= friend.current_country %></h6>
       </div>

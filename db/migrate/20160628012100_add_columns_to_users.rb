@@ -8,6 +8,6 @@ class AddColumnsToUsers < ActiveRecord::Migration
   	add_column :users, :description, :text
   	add_column :users, :why_am_i_here, :text
   	add_column :users, :hobbies, :text
-  	add_column :users, :photo_url, :string
+  	add_column :users, :image, :string
   end
 end
