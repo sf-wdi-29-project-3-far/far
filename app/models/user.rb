@@ -4,6 +4,7 @@ class User < ActiveRecord::Base
   belongs_to :sport
   belongs_to :food
 
+
   validates :first_name, :last_name, :age, presence: true
   validates :email, presence: true, confirmation: true, uniqueness: true
   validates :password, presence: true, confirmation: true, on: :create

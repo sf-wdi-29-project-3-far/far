@@ -11,9 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-
 ActiveRecord::Schema.define(version: 20160630224052) do
-
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -28,6 +26,7 @@ ActiveRecord::Schema.define(version: 20160630224052) do
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
   end
+
 
   create_table "conversations", force: :cascade do |t|
     t.integer  "sender_id"
@@ -127,6 +126,7 @@ ActiveRecord::Schema.define(version: 20160630224052) do
     t.integer  "age"
     t.datetime "created_at",                   null: false
     t.datetime "updated_at",                   null: false
+    t.text     "languages",       default: [],              array: true
     t.integer  "art_id"
     t.integer  "music_id"
     t.integer  "food_id"
@@ -143,7 +143,6 @@ ActiveRecord::Schema.define(version: 20160630224052) do
     t.boolean  "male"
     t.boolean  "female"
     t.boolean  "other_gender"
-    t.text     "languages",       default: [],              array: true
     t.text     "interests",       default: [],              array: true
     t.integer  "count",           default: 0
     t.string   "current_country"
