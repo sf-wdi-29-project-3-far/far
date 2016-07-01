@@ -12,7 +12,7 @@
         <li class="menu"><%= button_to "Messages", conversations_path, class: "button", method: :get %></li>
         <li class="menu"><%= button_to "Sign Out", sessions_path, method: :delete, class: "button" %></li>
       <% else %>
-        <li class="menu"><%= button_to "Sign in", sign_in_path, method: :get, class: "button" %></li>
+        <li class="menu"><%= button_to "Login", sign_in_path, method: :get, class: "button" %></li>
         <li class="menu"><%= button_to "Sign up", new_user_path, method: :get, class: "button" %></li>
       <% end %>
 

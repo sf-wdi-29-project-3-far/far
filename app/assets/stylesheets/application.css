@@ -15,6 +15,13 @@
  *= require foundation_and_overrides
 
  */
+.mySlides {
+  display: none;
+}
+
+.orbit-slide.is-active {
+  display: block;
+}
  a, a:visited {
   color: #05ABFE;
  }
@@ -37,4 +44,14 @@
     color: #05ABFE;
   background: #1C1C1C;
   padding: 10px;
+}
+.home-text {
+  padding: 25px;
+  font-size: 20px;
+    color: white;
+    line-height: 26px;
+  background-color: black;
+}
+.button-group {
+  padding: 0px 25px 25px 25px;
 }
