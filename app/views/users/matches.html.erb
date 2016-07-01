@@ -1,18 +1,18 @@
 <div class="row card matches">
-  <h2 class="profileTitle titles">Hi, <%= @user.first_name %></h2>
-
-  <br><br>
-  <h2 class="profileTitle titles">Your search parameters:</h2> 
-  <%= @form_match.language %><br>           
-  <%= @form_match.origin_country %><br>
-  <%= @form_match.age %><br>
-  <div>
+    <h2 class="profileTitle titles">Hi, <%= @user.first_name %></h2>
+    <br><br>
+    
+    <h2 class="profileTitle titles">Your search parameters:</h2> 
+  <div class="params">
+    <%= @form_match.language %><br>           
+    <%= @form_match.origin_country %><br>
+    <%= @form_match.age %><br>
+  
     <% @form_match.interests.each do |interest| %>
       <button class="button interests"><%= interest %></button>
     <% end %>
   </div>
-
-
+  
 <h2>Your matches:</h2><br>
 
   <div class="row" id="showFriendsDiv">

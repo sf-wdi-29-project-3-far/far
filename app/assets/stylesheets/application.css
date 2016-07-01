@@ -147,12 +147,17 @@ p {
 	padding-top: 40px;
 }
 
+.params {
+	padding-left: 50px;
+}
+
 .radiosMatch {
 	margin-left: 100px;
 }
 
 .matches {
 	margin: 20px;
+	padding: 20px;
 }
 
 

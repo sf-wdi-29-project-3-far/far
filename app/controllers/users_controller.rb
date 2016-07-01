@@ -81,7 +81,6 @@ class UsersController < ApplicationController
   def find_match
     @user = current_user
     @form_match = Match.create(match_params)
-    binding.pry
     @matches = @user.search_for_matches(@form_match)
     render :matches
   end
