@@ -11,7 +11,7 @@ class UsersController < ApplicationController
   # GET /users/1
   # GET /users/1.json
   def show
-    @user = User.find(params[:id])
+    @users = User.find(params[:id])
     if current_user == nil
       redirect_to sign_in_path
     else

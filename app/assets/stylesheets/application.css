@@ -37,3 +37,22 @@
     color: #05ABFE;
   background: #1C1C1C;
 }
+
+#users-header {
+  text-align: center;
+}
+.media-object {
+  box-shadow: 10px 5px 5px black;
+}
+
+.indexUserImg {
+  height: 250px;
+  width: 250px;
+  border: 2px solid gray;
+  border-radius: 6px;
+  margin: 10px;
+}
+
+#user-index-closeout {
+  background-color: #2199e8;
+}

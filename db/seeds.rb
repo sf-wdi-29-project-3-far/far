@@ -14,6 +14,7 @@ User.destroy_all
   u.age = 23
   u.male = true
   u.interests = ["dancing"]
+  u.image = "https://ucarecdn.com/66933ee1-2030-409c-bfa1-46c263681d05/"
   u.save
 end
 
@@ -28,6 +29,7 @@ end
   u.age = 24
   u.female = true
   u.interests = ["dancing", "football", "jazz", "mexican"]
+  u.image = "https://ucarecdn.com/66933ee1-2030-409c-bfa1-46c263681d05/"
   u.save
 end
 
@@ -42,6 +44,7 @@ end
   u.age = 34
   u.other_gender = true
   u.interests = ["painting", "basketball", "jazz", "italian"]
+  u.image = "https://ucarecdn.com/66933ee1-2030-409c-bfa1-46c263681d05/"
   u.save
 end
 
@@ -56,10 +59,11 @@ end
   u.age = 52
   u.female = true
   u.interests = ["singing", "football", "pop", "painting", "jazz", "spanish", "korean"]
+  u.image = "https://ucarecdn.com/66933ee1-2030-409c-bfa1-46c263681d05/"
   u.save
 end
 
-1.times do
+2.times do
   u = User.new
   u.first_name = Faker::Name.first_name
   u.last_name = Faker::Name.last_name
@@ -70,5 +74,6 @@ end
   u.age = 52
   u.female = true
   u.interests = ["singing", "football", "pop", "painting", "jazz", "spanish", "korean"]
+  u.image = "https://ucarecdn.com/66933ee1-2030-409c-bfa1-46c263681d05/"
   u.save
 end

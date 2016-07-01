@@ -13,7 +13,10 @@
 //= require jquery
 //= require jquery_ujs
 //= require foundation
+@include callout-base;
+$(document).foundation();
 //= require turbolinks
 //= require_tree .
+
 
 
