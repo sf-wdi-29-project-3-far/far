@@ -4,7 +4,7 @@
 <%= button_to 'Start a conversation', new_video_path, class: 'button', method: :get %>
 
 <br><br><br>
-<div class="row card">
+<div class="row">
   <% if current_user.friend_request?(@user) %>
     <%= button_to 'Accept', accept_path(@user), method: :post, class: 'button' %>
     <%= button_to 'Decline', decline_path(@user), method: :post, class: 'button' %>
