@@ -8,4 +8,8 @@ class HomeController < ApplicationController
    #  @token = session.generate_token
     render :home
   end
+
+  def about
+  	render :about
+  end
 end

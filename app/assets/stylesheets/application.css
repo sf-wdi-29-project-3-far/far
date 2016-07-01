@@ -15,6 +15,9 @@
  *= require foundation_and_overrides
 
  */
+
+
+
  a, a:visited {
   color: #05ABFE;
  }
@@ -34,7 +37,7 @@
 }
 .menu-text {
   font-size: 26px;
-    color: #05ABFE;
+  color: #05ABFE;
   background: #1C1C1C;
 }
 
@@ -181,3 +184,16 @@ p {
 	margin: 20px;
 	padding: 20px;
 }
+.home-center {
+  margin: auto;
+  width: 100%;
+  padding: 10px;
+  justify-content: center;
+}
+
+.about-image {
+  
+}
+
+
+

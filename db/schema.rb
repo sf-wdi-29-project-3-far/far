@@ -60,6 +60,22 @@ ActiveRecord::Schema.define(version: 20160630224052) do
     t.integer  "status"
   end
 
+
+
+  create_table "messages", force: :cascade do |t|
+    t.text     "body"
+    t.integer  "conversation_id"
+    t.integer  "user_id"
+    t.boolean  "read",            default: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "messages", ["conversation_id"], name: "index_messages_on_conversation_id", using: :btree
+  add_index "messages", ["user_id"], name: "index_messages_on_user_id", using: :btree
+
+
+
   create_table "matches", force: :cascade do |t|
     t.string   "origin_country"
     t.string   "current_country"
@@ -73,6 +89,7 @@ ActiveRecord::Schema.define(version: 20160630224052) do
     t.text     "interests",       default: [],              array: true
   end
 
+
   create_table "messages", force: :cascade do |t|
     t.text     "body"
     t.integer  "conversation_id"
@@ -84,6 +101,7 @@ ActiveRecord::Schema.define(version: 20160630224052) do
 
   add_index "messages", ["conversation_id"], name: "index_messages_on_conversation_id", using: :btree
   add_index "messages", ["user_id"], name: "index_messages_on_user_id", using: :btree
+
 
   create_table "musics", force: :cascade do |t|
     t.boolean  "pop"
