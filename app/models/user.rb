@@ -4,6 +4,7 @@ class User < ActiveRecord::Base
   belongs_to :sport
   belongs_to :food
 
+  validates :first_name, :last_name, :age, presence: true
   validates :email, presence: true, confirmation: true, uniqueness: true
   validates :password, presence: true, confirmation: true, on: :create
   validates :password, length: {minimum: 5, maximum: 120}, on: :update, allow_blank: true
@@ -31,14 +32,6 @@ class User < ActiveRecord::Base
   def pending_friend_ids
     pending_friends.pluck(:id)
   end
-
-  # def friend_blocked?(user)
-  #  user && !friends_with?(user) && user.id.in?(blocked_friend_ids)
-  # end
-
-  # def blocked_friend_ids
-  #   blocked_friends.pluck(:id)
-  # end
 
   def search_for_matches (form)
     $i = 0
@@ -108,9 +101,11 @@ class User < ActiveRecord::Base
       $i += 1
     end
 
-    return matches
+    ordered_matches = matches.sort_by{|match| match[:count]}
 
+    return ordered_matches.reverse
 
   end
 
 end
+

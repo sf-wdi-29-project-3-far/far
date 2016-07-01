@@ -6,11 +6,9 @@
 
 
     <title>Far</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/foundicons/3.0.0/foundation-icons.min.css">
 
     <%= stylesheet_link_tag    "application", media: 'all', 'data-turbolinks-track' => true  %>
-
-
-
 
     <%= javascript_include_tag "application", 'data-turbolinks-track' => true %>
 
@@ -18,11 +16,16 @@
 <script src="https://ucarecdn.com/widget/2.9.0/uploadcare/uploadcare.full.min.js" charset="utf-8"></script>
 
     <%= csrf_meta_tags %>
+    <script src="https://static.opentok.com/v2/js/opentok.min.js"></script>
   </head>
 
   <body>
-
+    
     <%= render 'header' %>
+    <% if flash[:notice] || flash[:errors] %>
+      <div class="notice"><%= flash[:notice] %></div>
+      <div class="errors"><%= flash[:errors] %></div>
+    <% end %>
 
 
     <%= yield %>

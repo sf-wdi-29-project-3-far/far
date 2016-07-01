@@ -1,94 +1,161 @@
-<p id="notice"><%= notice %></p>
-<%= button_to 'Back', users_path, class: 'button', method: :get %>
+<!-- <p id="notice"><%= notice %></p> -->
 
-<% if current_user.friend_request?(@user) %>
-  <%= button_to 'Accept', accept_path(@user), method: :post, class: 'button' %>
-  <%= button_to 'Decline', decline_path(@user), method: :post, class: 'button' %>
-<% end %>
 
-<% if current_user.friends_with?(@user) %>
-  <%= button_to 'Send Message', conversations_path(sender_id: current_user.id, recipient_id: @user.id), class: 'button', method: :post %>
-  <%= button_to 'Remove', remove_path(@user), method: :post, class: 'button' %>
-<% end %>
+<%= button_to 'Start a conversation', new_video_path, class: 'button', method: :get %>
 
+<br><br><br>
+<div class="row card">
+  <% if current_user.friend_request?(@user) %>
+    <%= button_to 'Accept', accept_path(@user), method: :post, class: 'button' %>
+    <%= button_to 'Decline', decline_path(@user), method: :post, class: 'button' %>
+  <% end %>
+  <% if current_user.friends_with?(@user) %>
+    <%= button_to 'Send Message', conversations_path(sender_id: current_user.id, recipient_id: @user.id), class: 'button', method: :post %>
+    <%= button_to 'Remove', remove_path(@user), method: :post, class: 'button' %>
+  <% end %>
+</div>
 
 <div class="row">
-    <div class="large-8 columns">
-      <div class="callout">
-        <h3><%= @user.first_name %>'s Profile </h3>
-        <p>I like to rollerblade.</p>
-        <p>Read about the other things I like to do:</p>
-        <div class="row">
-          <div class="large-4 medium-4 columns">
-            <p>
-              <strong>First name:</strong>
-              <%= @user.first_name %><br>
-              <strong>Last name:</strong>
-              <%= @user.last_name %><br>
-              <br>
-              <strong>Age:</strong>
-              <%= @user.age %><br>
-              <strong>Email:</strong>
-              <%= @user.email %>
-            </p>
-          </div>
-          <div class="large-4 medium-4 columns">
-            <p>
-              <strong>Current city:</strong>
-              <%= @user.current_city %><br>
-              <strong>Origin city:</strong>
-              <%= @user.origin_city %><br>
-              <br>
-              <strong>Languages:</strong>
-              <%= @user.languages %>
-            </p>
-          </div>
-          <div class="large-4 medium-4 columns">
-            <p>
-              <%= image_tag(@user.image) %>
-            </p>
-          </div>
+  <div class="large-5 columns">
+    <img class="profilePic" src="<%= @user.photo_url %>" alt="<%= @user.first_name %>'s Profile Pic">
+  </div>
+  <div class="large-7 columns">
+    <div class="row">
+      <h1 style="text-align: center">Hey, I'm <%= @user.first_name %></h1>
+      <h5 style="text-align: center"><%= @user.current_city %>&emsp;<i class="fi-die-one"></i>&emsp; Member since <%= @user.created_at.localtime.strftime('%b %Y') %></h5>  <br><br>
+    </div>
+    <div class="row">
+      <div class="row generalInfo">
+        <div class="large-6 columns">
+          <h6 class="attributes"><i class="fi-comment-quotes icons"></i>&emsp;&emsp;References</h6>
+          <h6 class="attributes"><i class="fi-torso icons"></i>&emsp;&emsp;<%= @user.age %>,&ensp;
+              <% if @user.male %>
+                Male
+              <% elsif @user.female %>
+                Female
+              <% else %>
+                Other
+              <% end %>
+          </h6>
+          <h6 class="attributes"><i class="fi-web icons"></i>&emsp;&emsp;
+              <% @user.languages.each do |language| %>
+                <%= language %>
+              <% end %>
+          </h6>
         </div>
+        <div class="large-6 columns">
+          <h6 class="attributes"><i class="fi-marker icons"></i>&emsp;&emsp;From&ensp;<%= @user.origin_country %></h6>
+          <h6 class="attributes"><i class="fi-info icons"></i>&emsp;&emsp;<%= @user.occupation %></h6>
+          <a href="<% @user.facebook_url %>"><h6 class="attributes"><i class="fi-social-facebook icons"></i>&emsp;&emsp;Facebook</h6></a>
+        </div>
+      </div>   
+    </div> 
+  </div>
+</div>
+<br>
+<br>
+<br>
+<div class="row">
+  <div class="large-1 columns">&emsp;</div>
+  <div class="large-2 columns card edit end">
+    <% if current_user == @user %>
+      <a href="/users/<%= @user.id %>/edit"><i class="fi-pencil icons"></i>&ensp;Edit&emsp;|&emsp;</a>
+      <i class="fi-trash icons"></i>&ensp;<%= link_to "Delete", @user, :method => :delete %>
+    <% else %>
+      <% unless current_user == @user || current_user.friends_with?(@user) || current_user.friend_pending?(@user) || current_user.friend_request?(@user) %>
+      <i class="fi-torsos-all icons"></i>&ensp;<b><%= link_to 'Send Request', request_path(@user), method: :post%></b>
+      <% end %>
+    <% end %>
+  </div>  
+</div>
+<br><br>
+<div class="row card">
+  <div class="row">
+    <h2 class="profileTitle">ABOUT ME</h2>
+    <div class="descriptions">
+      <%= @user.description %> <br><br><br>
+    </div>
+    <h2 class="profileTitle">WHY AM I HERE?</h2>
+    <div class="descriptions">
+      <%= @user.why_am_i_here %> <br><br><br>
+    </div>
+    <h2 class="profileTitle">MY HOBBIES</h2>
+    <div class="descriptions">
+      <%= @user.hobbies %> <br><br><br>
+    </div>
+    <h2 class="profileTitle">INTERESTS</h2>
+    <div class="">
+      <div class="descriptions">
+        <% @user.interests.each do |interest| %>
+          <button class="button interests"><%= interest %></button>
+        <% end %>
       </div>
+      <br><br>
     </div>
   </div>
+</div>
 
 
+<div class="row card" id="showFriends">
+  <div class="row">
+    <div class="large-6 columns">
+      <h2 class="profileTitle">FRIENDS</h2><br>
+    </div>
+    <% if current_user == @user %>
+      <div class="large-3 columns">
+        <div class="large reveal" id="modalRequests" data-reveal>
+          <h3>Friend Request </h3>
+          <% current_user.requested_friends.each do |q| %>
+            <ul>
+              <li><%= link_to q.first_name, "#{q.id}" %></li>
+            </ul>
+          <% end %>
+        </div>
+        <p><a data-open="modalRequests" style="line-height: 25px; font-size: 15px;">Friend Requests (<%= current_user.requested_friends.count %>)</a></p> 
+      </div>
+      <div class="large-3 columns">
+        <div class="large reveal" id="modalPending" data-reveal>
+          <% current_user.pending_friends.each do |q| %>
+            <ul>
+              <li><%= link_to q.first_name, "#{q.id}" %></li>
+            </ul>
+          <% end %>
+        </div>
+        <p><a data-open="modalPending" style="line-height: 25px; font-size: 15px;">Pending Requests(<%= current_user.pending_friends.count %>)</a></p>
+      </div>
+    <% end %>
+  </div>  
+  <div class="row" id="showFriendsDiv">
+    <% @user.friends.each do |friend| %>
+      <div class="columns large-2">
+        <a href='/users/<%= friend.id %>'><img src="<%= friend.photo_url %>" class="showUserImg" ></a>
+        <a href="/users/<%= friend.id %>"><h6 style="text-align: center"><b><%= friend.first_name %></b></h6></a>
+        <h6 style="text-align: center"><%= friend.current_country %></h6>
+      </div>
+    <% end %>
+  </div>  
+</div>
 
 
-
-
-
-
-
-
-<% if current_user == @user %>
-  <%= button_to 'Edit Profile', edit_user_path(@user), class: 'button', method: :get %>
-<% end %>
-
-<% unless current_user == @user || current_user.friends_with?(@user) || current_user.friend_pending?(@user) || current_user.friend_request?(@user) %>
-  <%= button_to 'Send Friend Request', request_path(@user), method: :post, class: 'button' %>
-<% end %>
-
-<h3>Friends</h3>
-<% @user.friends.each do |f| %>
-<ul>
-  <li><%= link_to f.first_name, "#{f.id}" %></li>
-</ul>
-<% end %>
-<% if current_user == @user %>
-<hr>
-  <h3>Friend Request</h3>
+<div class="large reveal" id="modalRequests" data-reveal>
+  <h3>Friend Request </h3>
   <% current_user.requested_friends.each do |q| %>
     <ul>
       <li><%= link_to q.first_name, "#{q.id}" %></li>
     </ul>
   <% end %>
-  <hr>
+</div>
+
+<div class="large reveal" id="modalRequests" data-reveal>
   <h3>Pending Friends</h3>
   <% current_user.pending_friends.each do |p| %>
     <ul>
       <li><%= link_to p.first_name, "#{p.id}" %></li>
     </ul>
   <% end %>
-<% end %>
+
+
+</div>
+
+
+
