@@ -63,7 +63,7 @@
       <i class="fi-trash icons"></i>&ensp;<%= link_to "Delete", @user, :method => :delete %>
     <% else %>
       <% unless current_user == @user || current_user.friends_with?(@user) || current_user.friend_pending?(@user) || current_user.friend_request?(@user) %>
-      <i class="fi-torsos-all icons"></i>&ensp;<b><%= link_to 'Send Request', request_path(@user), method: :post%></b>
+      <i class="fi-torsos-all icons"></i>&ensp;<b><%= link_to 'Send Request', request_path(@user), method: :post %></b>
       <% end %>
     <% end %>
   </div>  
