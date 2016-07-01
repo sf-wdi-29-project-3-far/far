@@ -11,19 +11,15 @@ RSpec.describe User, type: :model do
   			expect(user).to be_a(User)
   		end
 
-
       it { is_expected.to validate_presence_of(:first_name) }
       it { is_expected.to validate_presence_of(:last_name) }
       it { is_expected.to validate_presence_of(:email) }
-
       end
   
-
   describe "#self.confirm" do
 		it "finds user" do
         user.authenticate(user.password).should eq user
     end
-      
 	end
 
   describe "#search_for_matches" do
@@ -40,11 +36,5 @@ RSpec.describe User, type: :model do
       # @user_2 = User.new({age: 23, interest: "singing", language: "Italian"})
       # @user_3 = User.new({age: 37, interest: "football", language: "Spanish"})
     end
-
   end
-
-
-
-
-
 end
