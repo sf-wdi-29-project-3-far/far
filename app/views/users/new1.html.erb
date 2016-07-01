@@ -15,6 +15,7 @@
     
     <div class="row form">  
       <div class="large-6 columns">
+        <%= f.hidden_field :photo_url, role: 'uploadcare-uploader' %>
         <%= f.label :first_name, class: "formTitle" %>
         <%= f.text_field :first_name %>  
         <%= f.label :last_name, class: "formTitle" %>
@@ -156,11 +157,6 @@
 
       <%= f.label :hobbies %>
       <%= f.text_area :hobbies %> 
-    </div>
-  
-    <div class="row form">
-      <%= f.label :image %>
-      <%= f.text_field :image %>
     </div>
     <div class="actions">
       <button type="submit" class="button">Save!</button>

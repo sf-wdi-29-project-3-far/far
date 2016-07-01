@@ -16,7 +16,7 @@
 <% @users.each do |user| %>
   <div class="media-object columns medium-6 large-4">
     <div class="media-object-section">
-      <a href='/users/<%= user.id %>'><img src="<%= user.image %>" class="indexUserImg"></a>
+      <a href='/users/<%= user.id %>'><img src="<%= user.photo_url %>" class="indexUserImg"></a>
     </div>
     <div class="media-object-section">
       <h3><%= link_to user.first_name, user %></h3>

@@ -23,7 +23,7 @@ User.destroy_all
   u.origin_country = "Mexico"
   u.male = true
   u.interests = ["dancing"]
-  u.image = "https://pbs.twimg.com/profile_images/616323696601468930/SkNd2ppU.png"
+  u.photo_url = "https://pbs.twimg.com/profile_images/616323696601468930/SkNd2ppU.png"
   u.interests = ["dancing", "singing", "football", "spanish", "pop"]
   u.save
 end
@@ -38,7 +38,7 @@ end
   u.languages = ["Spanish"]
   u.origin_country = "Argentina"
   u.female = true
-  u.image = "https://pbs.twimg.com/profile_images/616323696601468930/SkNd2ppU.png"
+  u.photo_url = "https://pbs.twimg.com/profile_images/616323696601468930/SkNd2ppU.png"
   u.current_city = Faker::Address.city
   u.occupation = Faker::Company.profession
   u.age = Faker::Number.between(13, 70)
@@ -71,6 +71,6 @@ end
   u.origin_country = "Mexico"
   u.female = true
   u.interests = ["singing", "football", "pop", "painting", "jazz", "spanish", "korean"]
-  u.image = "https://pbs.twimg.com/profile_images/616323696601468930/SkNd2ppU.png"
+  u.photo_url = "https://pbs.twimg.com/profile_images/616323696601468930/SkNd2ppU.png"
   u.save
 end
