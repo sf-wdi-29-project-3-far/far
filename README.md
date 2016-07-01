@@ -62,7 +62,6 @@ User can...
 ---
 
 ### Planning
-Original basic idea was created by Emilio Gomez. Emilio loves to travel and understands the value of international relationships. The four of us
 
 **Wireframe**  
 Example: Profile page
