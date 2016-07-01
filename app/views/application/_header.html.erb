@@ -1,7 +1,9 @@
 <!-- Nav Bar -->
 <div class="top-bar">
   <div class="top-bar-left">
-    <a href="/" class="menu-text">FAR</a>
+
+    <a href="/" class="menu-text">Friends Around the World</a>
+
   </div>
 
   <div class="top-bar-right">
@@ -13,12 +15,10 @@
         <li class="menu"><%= button_to "Search", "/users/#{current_user.id}/match/new", class: "button", method: :get %></li>
         <li class="menu"><%= button_to "Sign Out", sessions_path, method: :delete, class: "button" %></li>
       <% else %>
-        <li class="menu"><%= button_to "Sign in", sign_in_path, method: :get, class: "button" %></li>
+        <li class="menu"><%= button_to "Login", sign_in_path, method: :get, class: "button" %></li>
         <li class="menu"><%= button_to "Sign up", new_user_path, method: :get, class: "button" %></li>
       <% end %>
-
       <li class="menu"><%= button_to "About Us", about_path, method: :get, class: "button" %></li>
-      
     </ul>
   </div>
 </div>

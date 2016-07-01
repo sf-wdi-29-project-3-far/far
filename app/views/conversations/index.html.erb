@@ -1,16 +1,16 @@
-<div class='container'>
+<div class="container">
   <div class="row">
-    <div class='medium-2 columns'>
-      <h3>Friends</h3>
-      <h5>New Message</h5>
+    <div class='medium-3 columns'>
+      <h4>Message a Friend</h4>
       <% current_user.friends.each do |user| %>
         <% if user.id != current_user.id %>
-          <%= button_to user.first_name, conversations_path(sender_id: current_user.id, recipient_id: user.id), class: 'button', method: :post %>
+          <h5><%= link_to user.first_name, conversations_path(sender_id: current_user.id, recipient_id: user.id), method: :post %></h5>
         <% end %>
       <% end %>
+      <button class="menu"><%= button_to "Find New Friends", users_path, method: :get, class: "button" %></button>
     </div>
-    <div class='medium-10 columns'>
-    <h3>Messages</h3>
+    <div class='medium-9 columns'>
+    <h3>Ongoing Conversations</h3>
         <% @conversations.each do |conversation| %>
           <% if conversation.sender_id == current_user.id || conversation.recipient_id == current_user.id %>
             <% if conversation.sender_id == current_user.id %>
@@ -29,4 +29,3 @@
     </div>
   </div>
 </div>
-

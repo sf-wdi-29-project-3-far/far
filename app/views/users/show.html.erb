@@ -138,10 +138,6 @@
 
 <div class="row card">
   <h3>Friend Request </h3>
-<% if current_user == @user %>
-  <%= link_to 'Edit Profile', edit_user_path(@user), class: 'button' %>
-<% end %>
-
 <% unless current_user == @user || current_user.friends_with?(@user) || current_user.friend_pending?(@user) || current_user.friend_request?(@user) %>
   <%= button_to 'Send Friend Request', request_path(@user), method: :post, class: 'button' %>
 <% end %>
