@@ -137,10 +137,20 @@
 </div>
 
 <div class="row card">
-  <h3>Friend Request </h3>
-<% unless current_user == @user || current_user.friends_with?(@user) || current_user.friend_pending?(@user) || current_user.friend_request?(@user) %>
-  <%= button_to 'Send Friend Request', request_path(@user), method: :post, class: 'button' %>
-<% end %>
+ <h3>Friend Request </h3>
+ <% current_user.requested_friends.each do |q| %>
+   <ul>
+     <li><%= link_to q.first_name, "#{q.id}" %></li>
+   </ul>
+ <% end %>
+
+
+ <h3>Pending Friends</h3>
+ <% current_user.pending_friends.each do |p| %>
+   <ul>
+     <li><%= link_to p.first_name, "#{p.id}" %></li>
+   </ul>
+ <% end %>
 
 
 </div>
