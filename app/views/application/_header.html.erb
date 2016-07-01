@@ -7,17 +7,15 @@
   <div class="top-bar-right">
     <ul class="menu">
       <% if current_user %>
-        <li class="menu"><%= button_to 'My Profile', user_path(current_user), method: :get, class: "currUser button" %></li>
+        <li class="menu"><%= button_to 'My Profile', user_path(current_user), method: :get, class: "button" %></li>
         <li class="menu"><%= button_to "Members", users_path, method: :get, class: "button" %></li>
         <li class="menu"><%= button_to "Messages", conversations_path, class: "button", method: :get %></li>
+        <li class="menu"><%= button_to "Search", "/users/#{current_user.id}/match/new", class: "button", method: :get %></li>
         <li class="menu"><%= button_to "Sign Out", sessions_path, method: :delete, class: "button" %></li>
       <% else %>
         <li class="menu"><%= button_to "Sign in", sign_in_path, method: :get, class: "button" %></li>
         <li class="menu"><%= button_to "Sign up", new_user_path, method: :get, class: "button" %></li>
       <% end %>
-
-      <li class="menu"><input type="search" placeholder="Search"></li>
-      <li class="menu"><button type="button" class="button">Search</button></li>
     </ul>
   </div>
 </div>

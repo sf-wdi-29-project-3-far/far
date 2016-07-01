@@ -1,33 +1,41 @@
-<p id="notice"><%= notice %></p>
+<div class="row">
+  <a href="<%= "/users/#{current_user.id}/match/new" %>">
+    <div class="success callout" id="user-index-closeout" data-closable="slide-out-right">
+      <h5>Find Your Best Friend Using Our Custom Search!</h5>
+      <p>Looking for a best friend to visit around the world? <%= link_to "Click Here", "/users/#{current_user.id}/match/new" %> to find the perfect match!</p>
+      <button class="close-button" aria-label="Dismiss alert" type="button" data-close>
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+  </a>
+</div>
 
-<h1>List of Users</h1>
+<div class="row">
+  <h1 class="large-6 large-centered columns" id="users-header">Find Friends!</h1>
+</div>
 
-<table>
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th>Email</th>
-      <th>Current City</th>
-      <th>Origin City</th>
-      <th>Languages</th>
-      <th>Age</th>
-    </tr>
-  </thead>
 
-  <tbody>
-    <% @users.each do |user| %>
-      <tr>
-        <td><%= link_to "#{user.first_name} #{user.last_name}", user %></td>
-        <td><%= user.email %></td>
-        <td><%= user.current_city %></td>
-        <td><%= user.origin_city %></td>
-        <td><%= user.languages %></td>
-        <td><%= user.age %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+<% @users.each do |user| %>
+  <div class="media-object columns medium-6 large-4">
+    <div class="media-object-section">
+      <a href='/users/<%= user.id %>'><img src="<%= user.image %>" class="indexUserImg"></a>
+    </div>
+    <div class="media-object-section">
+      <h3><%= link_to user.first_name, user %></h3>
+      <h4><%= user.origin_country %></h4>
+      <h5>Languages:</h5>
+      <p>
+        <% user.languages.each do |language| %>
+          <%= language %>
+        <% end %>
+      </p>
+      <h5>Interests:</h5>
+      <p>
+        <% user.interests.each do |language| %>
+          <%= language %>
+        <% end %>
+      </p>
+    </div>
+  </div>
+<% end %>
 
-<br>
-
-<%= button_to 'Create New User', new_user_path, class: 'button' %>

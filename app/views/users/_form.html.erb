@@ -47,7 +47,10 @@
   <%= f.label :age %><br>
   <%= f.number_field :age %>
   </div>
+  <div>
+    <%= f.hidden_field :image, role: 'uploadcare-uploader' %>
+  </div>
   <div class="actions">
-  <%= f.submit "Submit", class: "button" %> 
+  <%= f.submit "Submit", class: "button" %>
   </div>
 <% end %>
